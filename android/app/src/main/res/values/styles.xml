@@ -1,0 +1,20 @@
+<resources>
+<!-- Base application theme. -->
+<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="actionMenuTextColor">#fcfcfc</item>
+    <item name="android:actionMenuTextAppearance">@style/ReadingMenuTextStyle</item>
+    <item name="actionMenuTextAppearance">@style/ReadingMenuTextStyle</item>
+    <!--<item name="colorPrimaryDark">#00ff00</item>-->
+    <!--设置透明背景-->
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowTranslucentStatus">true</item>
+    <!--<item name="android:windowBackground">@mipmap/launch_screen</item>-->
+</style>
+<style name="ReadingMenuTextStyle">
+    <item name="android:textColor">#fcfcfc</item>
+    <item name="android:textSize">18sp</item>
+</style>
+
+</resources>
+

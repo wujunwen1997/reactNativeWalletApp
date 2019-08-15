@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#E2E2E2;}
+	.st3{fill:#A8A8A8;}
+	.st4{fill:none;stroke:#A8A8A8;stroke-miterlimit:10;}
+</style>
+<g id="I0ztR6.tif" class="st0">
+	
+		<image style="display:inline;overflow:visible;" width="344" height="232" id="Layer_0_1_" xlink:href="6DE6D8F7F38180A0.png"  transform="matrix(0.2907 0 0 0.2907 3 17)">
+	</image>
+</g>
+<g id="椭圆形">
+	<g>
+		<circle class="st1" cx="50" cy="50" r="47.7"/>
+		<path class="st2" d="M50,99C23,99,1,77,1,50S23,1,50,1s49,22,49,49S77,99,50,99z M50,3.6C24.4,3.6,3.6,24.4,3.6,50
+			S24.4,96.4,50,96.4S96.4,75.6,96.4,50S75.6,3.6,50,3.6z"/>
+	</g>
+</g>
+<g>
+	<path class="st3" d="M52,29.4V43c0,0.1,0.1,0.2,0.2,0.2h8.2c0.2,0,0.3-0.2,0.2-0.3l-8.2-13.7C52.3,29.1,52,29.1,52,29.4z"/>
+	<path class="st3" d="M52,60.1V46.4c0-0.1,0.1-0.2,0.2-0.2h8.2c0.2,0,0.3,0.2,0.2,0.3l-8.2,13.7C52.3,60.4,52,60.3,52,60.1z"/>
+	<line class="st4" x1="43.2" y1="45.4" x2="50.5" y2="45.4"/>
+	<polyline class="st4" points="52,29.3 42.5,45.4 52,60.1 	"/>
+</g>
+<g>
+	<path class="st3" d="M82.7,45.9l-11.7,7c-0.1,0.1-0.1,0.2-0.1,0.3l4.2,7c0.1,0.1,0.3,0.1,0.4,0L83,46.2
+		C83.1,46,82.9,45.8,82.7,45.9z"/>
+	<path class="st3" d="M56.3,61.7l11.7-7c0.1-0.1,0.2,0,0.3,0.1l4.2,7c0.1,0.1,0,0.3-0.2,0.3l-16,0C56.2,62.1,56.1,61.8,56.3,61.7z"
+		/>
+	<line class="st4" x1="64.4" y1="46.6" x2="68.1" y2="52.9"/>
+	<polyline class="st4" points="82.7,45.9 64,46 56.3,61.7 	"/>
+</g>
+<g>
+	<path class="st3" d="M47.5,62.1l-11.7-7c-0.1-0.1-0.1-0.2-0.1-0.3l4.2-7c0.1-0.1,0.3-0.1,0.4,0l7.5,14.1
+		C47.9,62,47.7,62.2,47.5,62.1z"/>
+	<path class="st3" d="M21.1,46.3l11.7,7c0.1,0.1,0.2,0,0.3-0.1l4.2-7c0.1-0.1,0-0.3-0.2-0.3l-16,0C21,45.9,20.9,46.2,21.1,46.3z"/>
+	<line class="st4" x1="29.2" y1="61.4" x2="32.9" y2="55.1"/>
+	<polyline class="st4" points="47.5,62.1 28.8,62 21.1,46.3 	"/>
+</g>
+</svg>
