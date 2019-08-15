@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {StyleSheet, Image, Text, View, ImageBackground, Dimensions,} from 'react-native';
-import { Button } from '@ant-design/react-native';
+import {StyleSheet, Image, Text, View, ImageBackground, Dimensions, StatusBar} from 'react-native';
+import {Button, WingBlank} from '@ant-design/react-native';
 import { btnDark, btnLight, activeBtnDark, activeBtnLight, backUser, createUser } from "../../styles/common";
 import { connect } from 'react-redux';
 import BoxShadow from "../../components/BoxShadow";
@@ -21,6 +21,7 @@ class Register extends Component {
     }
     return (
       <View style={s.container}>
+        <StatusBar barStyle={'light-content'} animated={true}/>
         <ImageBackground source={require('../../assets/images/r1.png')} style={s.headerImg}>
           <View style={{marginTop: height * 0.17}}>
           <BoxShadow height={350} width={340}>
