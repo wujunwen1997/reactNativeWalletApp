@@ -5,9 +5,9 @@ import {
 import {RNCamera} from 'react-native-camera';
 import {Icon, Provider, Toast} from "@ant-design/react-native";
 import { connect } from 'react-redux';
-import {readerQR} from 'react-native-lewin-qrcode'
+import {readerQR} from 'react-native-lewin-qrcode-chainspayfork'
 //图片选择器
-const ImagePicker = require('react-native-image-picker');
+import ImagePicker from 'react-native-image-picker';
 
 //图片选择器参数设置
 const options = {

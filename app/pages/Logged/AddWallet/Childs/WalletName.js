@@ -140,10 +140,10 @@ export class WalletConfig extends Component {
               </ScrollView>
             </View>
           </View>
-          <Button style={Object.assign({}, btnDark, s.btn)} type="primary" onPress={offJoin} loading={this.state.loading}
-                  disabled={this.state.disabled} activeStyle={activeBtnDark}>
-            <Text style={createUser}>取消邀请</Text>
-          </Button>
+          {/*<Button style={Object.assign({}, btnDark, s.btn)} type="primary" onPress={offJoin} loading={this.state.loading}*/}
+                  {/*disabled={this.state.disabled} activeStyle={activeBtnDark}>*/}
+            {/*<Text style={createUser}>取消邀请</Text>*/}
+          {/*</Button>*/}
         </WingBlank>
       </Provider>
     )

@@ -86,7 +86,7 @@ class passwordEnter extends Component{
             }
           })
         } else {
-          Toast.fail('密码错误，请重新输入', 2)
+          Toast.fail('密码错误，请重新输入', 1)
         }
       })
     };

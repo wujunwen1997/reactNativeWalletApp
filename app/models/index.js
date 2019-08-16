@@ -187,12 +187,15 @@ export default {
           ...loadingObj
         }
       });
-      const {Wallet, depositArr, withdrawArr} = yield select(state => state.home);
-      let copyDepositArr = isRefresh ? [] : depositArr;
-      let copyWithdrawArr = isRefresh ? [] : withdrawArr;
+      const {Wallet, depositArr, withdrawArr, activeTab} = yield select(state => state.home);
+      let copyDepositArr = [];
+      let copyWithdrawArr = [];
+      copyDepositArr = isRefresh ? [] : depositArr;
+      copyWithdrawArr = isRefresh ? [] : withdrawArr;
       const res = yield call(Wallet.get_deposit_history, {coinid, wallet, ...obj.deposit});
       if (res.success) {
         if (res.tx.length === 0) {
+          obj.deposit.pagenum === 0 && activeTab === 0 && Toast.info('转入无数据', 1);
           copyDepositArr.length > 0 && Toast.info('您已经刷到底了...');
         } else {
           if (delSame(copyDepositArr, res.tx)) {
@@ -210,6 +213,7 @@ export default {
       const resW = yield call(Wallet.get_withdraw_history, {coinid, wallet, ...obj.withdraw});
       if (resW.success) {
         if (resW.tx.length === 0) {
+          obj.withdraw.pagenum === 0 && activeTab === 1 && Toast.info('转出无数据', 1);
           copyWithdrawArr.length > 0 && Toast.info('您已经刷到底了...', 2);
         } else {
           if (delSame(copyWithdrawArr, resW.tx)) {

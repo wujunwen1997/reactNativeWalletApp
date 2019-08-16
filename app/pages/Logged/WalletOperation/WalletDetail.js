@@ -26,8 +26,20 @@ class WalletDetail extends Component {
       this.refreshData(1)
     });
     this.refreshData(0)
+    this.props.dispatch({
+      type: 'home/updateState',
+      payload: {detailLoading: true}
+    });
   }
   componentWillUnmount() {
+    this.props.dispatch({
+      type: 'home/updateState',
+      payload: {
+        depositArr: [],
+        withdrawArr: [],
+        activeTab: 0
+      }
+    })
     this.subscription.remove();
   };
   refreshData = (num) => {
@@ -70,6 +82,7 @@ class WalletDetail extends Component {
         type: 'home/updateState',
         payload: {activeTab: activeTab === 0 ? 1 : 0, detailLoading: false}
       })
+      this.refreshData(activeTab === 0 ? 1 : 0)
     };
     const nextPage = (event) => {
       const contentHeight = event.nativeEvent.contentSize.height;
@@ -111,8 +124,8 @@ class WalletDetail extends Component {
                   tabBarTextStyle={{fontSize: 14}}>
               {
                 [depositArr, withdrawArr].map((k,i) => {
-                  if (k.length === 0) {
-                    return(<Text key={i} style={s.nullData}>无数据...</Text>)
+                  if (detailLoading) {
+                    <ActivityIndicator size="small" color="#efefef" />
                   }
                   return (
                     <ScrollView key={i} showsVerticalScrollIndicator={false} onScrollEndDrag={nextPage} refreshControl={
@@ -146,7 +159,6 @@ class WalletDetail extends Component {
                           </TouchableOpacity>
                         );
                       })}
-                      {detailLoading &&　<ActivityIndicator size="small" color="#efefef" />}
                     </ScrollView>
                   )
                 })

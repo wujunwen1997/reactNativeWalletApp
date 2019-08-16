@@ -5460,13 +5460,13 @@ react-native-gesture-handler@1.3.0:
 
 react-native-image-picker@^1.0.2:
   version "1.0.2"
-  resolved "https://registry.npm.taobao.org/react-native-image-picker/download/react-native-image-picker-1.0.2.tgz#8b0ffe89d7dd97bef1f7e317f313f90549b126b3"
+  resolved "https://registry.npm.taobao.org/react-native-image-picker/download/react-native-image-picker-1.0.2.tgz?cache=0&sync_timestamp=1564726918294&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-native-image-picker%2Fdownload%2Freact-native-image-picker-1.0.2.tgz#8b0ffe89d7dd97bef1f7e317f313f90549b126b3"
   integrity sha1-iw/+idfdl77x9+MX8xP5BUmxJrM=
 
-react-native-lewin-qrcode@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/react-native-lewin-qrcode/download/react-native-lewin-qrcode-1.0.2.tgz#360e78a9ce6ed861a9711a5a35e3b1ecffe8d452"
-  integrity sha1-Ng54qc5u2GGpcRpaNeOx7P/o1FI=
+react-native-lewin-qrcode-chainspayfork@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npm.taobao.org/react-native-lewin-qrcode-chainspayfork/download/react-native-lewin-qrcode-chainspayfork-1.0.3.tgz?cache=0&sync_timestamp=1565856017052&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-native-lewin-qrcode-chainspayfork%2Fdownload%2Freact-native-lewin-qrcode-chainspayfork-1.0.3.tgz#b768ffedd2a6e5e9d079507b7dfade363112a991"
+  integrity sha1-t2j/7dKm5enQeVB7ffreNjESqZE=
 
 react-native-modal-popover@^0.0.12:
   version "0.0.12"
