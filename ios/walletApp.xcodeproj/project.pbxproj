@@ -5,34 +5,80 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* walletAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* walletAppTests.m */; };
+		11F9581A44FB4574AD2BD0CB /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23A98695201540508795F181 /* Foundation.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2003889D256747C297CB0D87 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5D890F3E4884627B579EB81 /* Entypo.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* walletAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* walletAppTests.m */; };
-		F7825064A6D348138C40A791 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA30D48468D4F77ABDCDC31 /* antfill.ttf */; };
-		AAEB5A9F51FE42F0ADBA0B90 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE8F4A0EE8664325BB1C2D80 /* antoutline.ttf */; };
-		382456BF70E34C67AA758AE7 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD953F6C62914516814199D5 /* AntDesign.ttf */; };
-		2003889D256747C297CB0D87 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5D890F3E4884627B579EB81 /* Entypo.ttf */; };
-		46D51094D38D49A2A7B4A614 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D6F150653C47C5B04546AA /* EvilIcons.ttf */; };
 		2FCEE12C71DD406D8DC2323B /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84E6ABA2C83940F68D720661 /* Feather.ttf */; };
-		AD65716BE2B34B80AF44D4DB /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA5EEAD0B4D544EA8D44F265 /* FontAwesome.ttf */; };
-		E5D206DBBDC548E9A5D0B1EA /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A55A74E21282433ABDA915B1 /* FontAwesome5_Brands.ttf */; };
-		33ECF4CD2DF544BD99860CD1 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02F11063345A9B4BB6108 /* FontAwesome5_Regular.ttf */; };
-		3D32762C9B31427BA6377098 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4A674FDAC45DDBDCBBD99 /* FontAwesome5_Solid.ttf */; };
-		AB2E9717A8C74866885C7DD1 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EE97C40BA8D4B229E9CF3CB /* Fontisto.ttf */; };
-		11F9581A44FB4574AD2BD0CB /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23A98695201540508795F181 /* Foundation.ttf */; };
-		472E289AAA9F4D4B973ED453 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12D2D99AFF164E8799217480 /* Ionicons.ttf */; };
-		89E396BFDABB491E805DA232 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA1834B581DE425686630D7A /* MaterialCommunityIcons.ttf */; };
-		D198A0C56BA74F86BD9358D8 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07C95C0DB1FB4E6D822EE391 /* MaterialIcons.ttf */; };
-		A2A1465458F142F691E880B9 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3408944ECED0454BA45B8142 /* Octicons.ttf */; };
-		AD9C38B1091D4CADAFBD8A53 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC8722EA6C6E4878B1147E61 /* SimpleLineIcons.ttf */; };
 		315377009CFF468D90ECD7BA /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FBCBF2C43D9E4F95BFE17674 /* Zocial.ttf */; };
+		33ECF4CD2DF544BD99860CD1 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CD02F11063345A9B4BB6108 /* FontAwesome5_Regular.ttf */; };
+		382456BF70E34C67AA758AE7 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD953F6C62914516814199D5 /* AntDesign.ttf */; };
+		3D32762C9B31427BA6377098 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4A674FDAC45DDBDCBBD99 /* FontAwesome5_Solid.ttf */; };
+		46D51094D38D49A2A7B4A614 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D6F150653C47C5B04546AA /* EvilIcons.ttf */; };
+		472E289AAA9F4D4B973ED453 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12D2D99AFF164E8799217480 /* Ionicons.ttf */; };
+		4A4950055406EF1DBAA8231A /* libPods-walletApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 231D67186011590055006B8F /* libPods-walletApp-tvOSTests.a */; };
+		6A53BFC7230BBE6A00E5D20F /* RCTWallet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A53BFC4230BBE6A00E5D20F /* RCTWallet.mm */; };
+		6A53BFEF230BBECD00E5D20F /* libdevcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFC8230BBECC00E5D20F /* libdevcrypto.a */; };
+		6A53BFF0230BBECD00E5D20F /* libflatbuffers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFC9230BBECC00E5D20F /* libflatbuffers.a */; };
+		6A53BFF1230BBECD00E5D20F /* libboost_chrono.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFCA230BBECC00E5D20F /* libboost_chrono.a */; };
+		6A53BFF2230BBECD00E5D20F /* libbitcoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFCB230BBECC00E5D20F /* libbitcoin.a */; };
+		6A53BFF3230BBECD00E5D20F /* libblockchain-crypto-cxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFCC230BBECC00E5D20F /* libblockchain-crypto-cxx.a */; };
+		6A53BFF4230BBECD00E5D20F /* libcoinutils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFCD230BBECC00E5D20F /* libcoinutils.a */; };
+		6A53BFF5230BBECD00E5D20F /* libeasy-http-static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFCE230BBECC00E5D20F /* libeasy-http-static.a */; };
+		6A53BFF6230BBECD00E5D20F /* libfc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFCF230BBECC00E5D20F /* libfc.a */; };
+		6A53BFF7230BBECD00E5D20F /* libbitcoincommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFD0230BBECC00E5D20F /* libbitcoincommon.a */; };
+		6A53BFF8230BBECD00E5D20F /* libboost_regex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFD1230BBECC00E5D20F /* libboost_regex.a */; };
+		6A53BFF9230BBECD00E5D20F /* libsecp256k1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFD2230BBECC00E5D20F /* libsecp256k1.a */; };
+		6A53BFFA230BBECD00E5D20F /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFD3230BBECC00E5D20F /* libcrypto.a */; };
+		6A53BFFB230BBECD00E5D20F /* libbitcoinhd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFD4230BBECC00E5D20F /* libbitcoinhd.a */; };
+		6A53BFFC230BBECD00E5D20F /* libdevcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFD5230BBECD00E5D20F /* libdevcore.a */; };
+		6A53BFFD230BBECD00E5D20F /* libeosio_chain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFD6230BBECD00E5D20F /* libeosio_chain.a */; };
+		6A53BFFE230BBECD00E5D20F /* libdogecoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFD7230BBECD00E5D20F /* libdogecoin.a */; };
+		6A53BFFF230BBECD00E5D20F /* libkeystore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFD8230BBECD00E5D20F /* libkeystore.a */; };
+		6A53C000230BBECD00E5D20F /* librnbridgewallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFD9230BBECD00E5D20F /* librnbridgewallet.a */; };
+		6A53C001230BBECD00E5D20F /* libdashcoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFDA230BBECD00E5D20F /* libdashcoin.a */; };
+		6A53C002230BBECD00E5D20F /* libchainbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFDB230BBECD00E5D20F /* libchainbase.a */; };
+		6A53C003230BBECD00E5D20F /* libzlibstatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFDC230BBECD00E5D20F /* libzlibstatic.a */; };
+		6A53C004230BBECD00E5D20F /* libed25519.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFDD230BBECD00E5D20F /* libed25519.a */; };
+		6A53C005230BBECD00E5D20F /* liblitecoinbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFDE230BBECD00E5D20F /* liblitecoinbase.a */; };
+		6A53C006230BBECD00E5D20F /* libboost_locale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFDF230BBECD00E5D20F /* libboost_locale.a */; };
+		6A53C007230BBECD00E5D20F /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFE0230BBECD00E5D20F /* libboost_thread.a */; };
+		6A53C008230BBECD00E5D20F /* libnumeric.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFE1230BBECD00E5D20F /* libnumeric.a */; };
+		6A53C009230BBECD00E5D20F /* libcryptopp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFE2230BBECD00E5D20F /* libcryptopp.a */; };
+		6A53C00A230BBECD00E5D20F /* libjson11.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFE3230BBECD00E5D20F /* libjson11.a */; };
+		6A53C00B230BBECD00E5D20F /* librcoinbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFE4230BBECD00E5D20F /* librcoinbase.a */; };
+		6A53C00C230BBECD00E5D20F /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFE5230BBECD00E5D20F /* libboost_filesystem.a */; };
+		6A53C00D230BBECD00E5D20F /* libboost_date_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFE6230BBECD00E5D20F /* libboost_date_time.a */; };
+		6A53C00E230BBECD00E5D20F /* libomnicore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFE7230BBECD00E5D20F /* libomnicore.a */; };
+		6A53C00F230BBECD00E5D20F /* libsoftfloat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFE8230BBECD00E5D20F /* libsoftfloat.a */; };
+		6A53C010230BBECD00E5D20F /* liblibscrypt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFE9230BBECD00E5D20F /* liblibscrypt.a */; };
+		6A53C011230BBECD00E5D20F /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFEA230BBECD00E5D20F /* libssl.a */; };
+		6A53C012230BBECD00E5D20F /* libethcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFEB230BBECD00E5D20F /* libethcore.a */; };
+		6A53C013230BBECD00E5D20F /* libbitcoinabc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFEC230BBECD00E5D20F /* libbitcoinabc.a */; };
+		6A53C014230BBECD00E5D20F /* libcoincrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFED230BBECD00E5D20F /* libcoincrypto.a */; };
+		6A53C015230BBECD00E5D20F /* libboost_iostreams.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFEE230BBECD00E5D20F /* libboost_iostreams.a */; };
+		6A53C017230BC0EC00E5D20F /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A53C016230BC0EC00E5D20F /* icomoon.ttf */; };
+		73A1FF4EFC84111535417CBE /* libPods-walletApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6D22D75D0080B4F7FAC298 /* libPods-walletApp-tvOS.a */; };
+		89E396BFDABB491E805DA232 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA1834B581DE425686630D7A /* MaterialCommunityIcons.ttf */; };
+		9BFFE28A3A17C03283BBB0CD /* libPods-walletApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E58A987B51CDEFBEA2C1DD8 /* libPods-walletApp.a */; };
+		A2A1465458F142F691E880B9 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3408944ECED0454BA45B8142 /* Octicons.ttf */; };
+		AAEB5A9F51FE42F0ADBA0B90 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE8F4A0EE8664325BB1C2D80 /* antoutline.ttf */; };
+		AB2E9717A8C74866885C7DD1 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EE97C40BA8D4B229E9CF3CB /* Fontisto.ttf */; };
+		AD65716BE2B34B80AF44D4DB /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA5EEAD0B4D544EA8D44F265 /* FontAwesome.ttf */; };
+		AD9C38B1091D4CADAFBD8A53 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC8722EA6C6E4878B1147E61 /* SimpleLineIcons.ttf */; };
+		C2D7BD357DBE5769292B5159 /* libPods-walletAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C9CC9CB649FEA86229EB18 /* libPods-walletAppTests.a */; };
+		D198A0C56BA74F86BD9358D8 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07C95C0DB1FB4E6D822EE391 /* MaterialIcons.ttf */; };
+		E5D206DBBDC548E9A5D0B1EA /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A55A74E21282433ABDA915B1 /* FontAwesome5_Brands.ttf */; };
+		F7825064A6D348138C40A791 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA30D48468D4F77ABDCDC31 /* antfill.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +103,12 @@
 		00E356EE1AD99517003FC87E /* walletAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = walletAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* walletAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = walletAppTests.m; sourceTree = "<group>"; };
+		03111863A1516C3C997DB3A9 /* Pods-walletApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walletApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-walletApp-tvOSTests/Pods-walletApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		04675EDDA39DEC586DB3ED83 /* Pods-walletApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walletApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-walletApp-tvOSTests/Pods-walletApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		047E87A6A39BD1774E3A6A32 /* Pods-walletApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walletApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-walletApp-tvOS/Pods-walletApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		07C95C0DB1FB4E6D822EE391 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		0CD02F11063345A9B4BB6108 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		12D2D99AFF164E8799217480 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* walletApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = walletApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = walletApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = walletApp/AppDelegate.m; sourceTree = "<group>"; };
@@ -64,28 +116,77 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = walletApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = walletApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = walletApp/main.m; sourceTree = "<group>"; };
+		18C9CC9CB649FEA86229EB18 /* libPods-walletAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-walletAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		231D67186011590055006B8F /* libPods-walletApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-walletApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23A98695201540508795F181 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		2CA30D48468D4F77ABDCDC31 /* antfill.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = antfill.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* walletApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "walletApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* walletApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "walletApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3408944ECED0454BA45B8142 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		3E6D22D75D0080B4F7FAC298 /* libPods-walletApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-walletApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EE97C40BA8D4B229E9CF3CB /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		4CD4A674FDAC45DDBDCBBD99 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		4E58A987B51CDEFBEA2C1DD8 /* libPods-walletApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-walletApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6033FB7EB16B17FA7F1784F7 /* Pods-walletAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walletAppTests.debug.xcconfig"; path = "Target Support Files/Pods-walletAppTests/Pods-walletAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6A53BFC4230BBE6A00E5D20F /* RCTWallet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RCTWallet.mm; path = ReactBridge/RCTWallet.mm; sourceTree = "<group>"; };
+		6A53BFC5230BBE6A00E5D20F /* RCTWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTWallet.h; path = ReactBridge/RCTWallet.h; sourceTree = "<group>"; };
+		6A53BFC6230BBE6A00E5D20F /* rnbridgewallet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = rnbridgewallet.hpp; path = ReactBridge/rnbridgewallet.hpp; sourceTree = "<group>"; };
+		6A53BFC8230BBECC00E5D20F /* libdevcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdevcrypto.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libdevcrypto.a; sourceTree = "<group>"; };
+		6A53BFC9230BBECC00E5D20F /* libflatbuffers.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libflatbuffers.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libflatbuffers.a; sourceTree = "<group>"; };
+		6A53BFCA230BBECC00E5D20F /* libboost_chrono.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_chrono.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libboost_chrono.a; sourceTree = "<group>"; };
+		6A53BFCB230BBECC00E5D20F /* libbitcoin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbitcoin.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libbitcoin.a; sourceTree = "<group>"; };
+		6A53BFCC230BBECC00E5D20F /* libblockchain-crypto-cxx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libblockchain-crypto-cxx.a"; path = "../../../blockchain_crypto/buildios/lib/MinSizeRel/libblockchain-crypto-cxx.a"; sourceTree = "<group>"; };
+		6A53BFCD230BBECC00E5D20F /* libcoinutils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcoinutils.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libcoinutils.a; sourceTree = "<group>"; };
+		6A53BFCE230BBECC00E5D20F /* libeasy-http-static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libeasy-http-static.a"; path = "../../../blockchain_crypto/buildios/lib/MinSizeRel/libeasy-http-static.a"; sourceTree = "<group>"; };
+		6A53BFCF230BBECC00E5D20F /* libfc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfc.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libfc.a; sourceTree = "<group>"; };
+		6A53BFD0230BBECC00E5D20F /* libbitcoincommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbitcoincommon.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libbitcoincommon.a; sourceTree = "<group>"; };
+		6A53BFD1230BBECC00E5D20F /* libboost_regex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_regex.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libboost_regex.a; sourceTree = "<group>"; };
+		6A53BFD2230BBECC00E5D20F /* libsecp256k1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsecp256k1.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libsecp256k1.a; sourceTree = "<group>"; };
+		6A53BFD3230BBECC00E5D20F /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libcrypto.a; sourceTree = "<group>"; };
+		6A53BFD4230BBECC00E5D20F /* libbitcoinhd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbitcoinhd.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libbitcoinhd.a; sourceTree = "<group>"; };
+		6A53BFD5230BBECD00E5D20F /* libdevcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdevcore.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libdevcore.a; sourceTree = "<group>"; };
+		6A53BFD6230BBECD00E5D20F /* libeosio_chain.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libeosio_chain.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libeosio_chain.a; sourceTree = "<group>"; };
+		6A53BFD7230BBECD00E5D20F /* libdogecoin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdogecoin.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libdogecoin.a; sourceTree = "<group>"; };
+		6A53BFD8230BBECD00E5D20F /* libkeystore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkeystore.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libkeystore.a; sourceTree = "<group>"; };
+		6A53BFD9230BBECD00E5D20F /* librnbridgewallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librnbridgewallet.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/librnbridgewallet.a; sourceTree = "<group>"; };
+		6A53BFDA230BBECD00E5D20F /* libdashcoin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdashcoin.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libdashcoin.a; sourceTree = "<group>"; };
+		6A53BFDB230BBECD00E5D20F /* libchainbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libchainbase.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libchainbase.a; sourceTree = "<group>"; };
+		6A53BFDC230BBECD00E5D20F /* libzlibstatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzlibstatic.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libzlibstatic.a; sourceTree = "<group>"; };
+		6A53BFDD230BBECD00E5D20F /* libed25519.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libed25519.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libed25519.a; sourceTree = "<group>"; };
+		6A53BFDE230BBECD00E5D20F /* liblitecoinbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblitecoinbase.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/liblitecoinbase.a; sourceTree = "<group>"; };
+		6A53BFDF230BBECD00E5D20F /* libboost_locale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_locale.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libboost_locale.a; sourceTree = "<group>"; };
+		6A53BFE0230BBECD00E5D20F /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libboost_thread.a; sourceTree = "<group>"; };
+		6A53BFE1230BBECD00E5D20F /* libnumeric.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnumeric.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libnumeric.a; sourceTree = "<group>"; };
+		6A53BFE2230BBECD00E5D20F /* libcryptopp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcryptopp.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libcryptopp.a; sourceTree = "<group>"; };
+		6A53BFE3230BBECD00E5D20F /* libjson11.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjson11.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libjson11.a; sourceTree = "<group>"; };
+		6A53BFE4230BBECD00E5D20F /* librcoinbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librcoinbase.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/librcoinbase.a; sourceTree = "<group>"; };
+		6A53BFE5230BBECD00E5D20F /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libboost_filesystem.a; sourceTree = "<group>"; };
+		6A53BFE6230BBECD00E5D20F /* libboost_date_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_date_time.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libboost_date_time.a; sourceTree = "<group>"; };
+		6A53BFE7230BBECD00E5D20F /* libomnicore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomnicore.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libomnicore.a; sourceTree = "<group>"; };
+		6A53BFE8230BBECD00E5D20F /* libsoftfloat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsoftfloat.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libsoftfloat.a; sourceTree = "<group>"; };
+		6A53BFE9230BBECD00E5D20F /* liblibscrypt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibscrypt.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/liblibscrypt.a; sourceTree = "<group>"; };
+		6A53BFEA230BBECD00E5D20F /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libssl.a; sourceTree = "<group>"; };
+		6A53BFEB230BBECD00E5D20F /* libethcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libethcore.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libethcore.a; sourceTree = "<group>"; };
+		6A53BFEC230BBECD00E5D20F /* libbitcoinabc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbitcoinabc.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libbitcoinabc.a; sourceTree = "<group>"; };
+		6A53BFED230BBECD00E5D20F /* libcoincrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcoincrypto.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libcoincrypto.a; sourceTree = "<group>"; };
+		6A53BFEE230BBECD00E5D20F /* libboost_iostreams.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_iostreams.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libboost_iostreams.a; sourceTree = "<group>"; };
+		6A53C016230BC0EC00E5D20F /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = icomoon.ttf; path = ../app/assets/fonts/icomoon.ttf; sourceTree = "<group>"; };
+		76D6F150653C47C5B04546AA /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		84E6ABA2C83940F68D720661 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		A0ADAB32D438445890833734 /* Pods-walletApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walletApp.debug.xcconfig"; path = "Target Support Files/Pods-walletApp/Pods-walletApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A55A74E21282433ABDA915B1 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		A5D890F3E4884627B579EB81 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		AD953F6C62914516814199D5 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		BA5EEAD0B4D544EA8D44F265 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		C6AA1C63BC9A554ACBEFFF5C /* Pods-walletApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walletApp.release.xcconfig"; path = "Target Support Files/Pods-walletApp/Pods-walletApp.release.xcconfig"; sourceTree = "<group>"; };
+		DA1834B581DE425686630D7A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		DC8722EA6C6E4878B1147E61 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		DE8F4A0EE8664325BB1C2D80 /* antoutline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = antoutline.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		2CA30D48468D4F77ABDCDC31 /* antfill.ttf */ = {isa = PBXFileReference; name = "antfill.ttf"; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DE8F4A0EE8664325BB1C2D80 /* antoutline.ttf */ = {isa = PBXFileReference; name = "antoutline.ttf"; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AD953F6C62914516814199D5 /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A5D890F3E4884627B579EB81 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		76D6F150653C47C5B04546AA /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		84E6ABA2C83940F68D720661 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BA5EEAD0B4D544EA8D44F265 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A55A74E21282433ABDA915B1 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0CD02F11063345A9B4BB6108 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4CD4A674FDAC45DDBDCBBD99 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3EE97C40BA8D4B229E9CF3CB /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		23A98695201540508795F181 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		12D2D99AFF164E8799217480 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DA1834B581DE425686630D7A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		07C95C0DB1FB4E6D822EE391 /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3408944ECED0454BA45B8142 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DC8722EA6C6E4878B1147E61 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FBCBF2C43D9E4F95BFE17674 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F16EC627925513FAF00D6B9D /* Pods-walletAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walletAppTests.release.xcconfig"; path = "Target Support Files/Pods-walletAppTests/Pods-walletAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		F57D5D638BBF20011A6F3852 /* Pods-walletApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walletApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-walletApp-tvOS/Pods-walletApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		FBCBF2C43D9E4F95BFE17674 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D7BD357DBE5769292B5159 /* libPods-walletAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +202,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A53BFEF230BBECD00E5D20F /* libdevcrypto.a in Frameworks */,
+				6A53BFF0230BBECD00E5D20F /* libflatbuffers.a in Frameworks */,
+				6A53BFF1230BBECD00E5D20F /* libboost_chrono.a in Frameworks */,
+				6A53BFF2230BBECD00E5D20F /* libbitcoin.a in Frameworks */,
+				6A53BFF3230BBECD00E5D20F /* libblockchain-crypto-cxx.a in Frameworks */,
+				6A53BFF4230BBECD00E5D20F /* libcoinutils.a in Frameworks */,
+				6A53BFF5230BBECD00E5D20F /* libeasy-http-static.a in Frameworks */,
+				6A53BFF6230BBECD00E5D20F /* libfc.a in Frameworks */,
+				6A53BFF7230BBECD00E5D20F /* libbitcoincommon.a in Frameworks */,
+				6A53BFF8230BBECD00E5D20F /* libboost_regex.a in Frameworks */,
+				6A53BFF9230BBECD00E5D20F /* libsecp256k1.a in Frameworks */,
+				6A53BFFA230BBECD00E5D20F /* libcrypto.a in Frameworks */,
+				6A53BFFB230BBECD00E5D20F /* libbitcoinhd.a in Frameworks */,
+				6A53BFFC230BBECD00E5D20F /* libdevcore.a in Frameworks */,
+				6A53BFFD230BBECD00E5D20F /* libeosio_chain.a in Frameworks */,
+				6A53BFFE230BBECD00E5D20F /* libdogecoin.a in Frameworks */,
+				6A53BFFF230BBECD00E5D20F /* libkeystore.a in Frameworks */,
+				6A53C000230BBECD00E5D20F /* librnbridgewallet.a in Frameworks */,
+				6A53C001230BBECD00E5D20F /* libdashcoin.a in Frameworks */,
+				6A53C002230BBECD00E5D20F /* libchainbase.a in Frameworks */,
+				6A53C003230BBECD00E5D20F /* libzlibstatic.a in Frameworks */,
+				6A53C004230BBECD00E5D20F /* libed25519.a in Frameworks */,
+				6A53C005230BBECD00E5D20F /* liblitecoinbase.a in Frameworks */,
+				6A53C006230BBECD00E5D20F /* libboost_locale.a in Frameworks */,
+				6A53C007230BBECD00E5D20F /* libboost_thread.a in Frameworks */,
+				6A53C008230BBECD00E5D20F /* libnumeric.a in Frameworks */,
+				6A53C009230BBECD00E5D20F /* libcryptopp.a in Frameworks */,
+				6A53C00A230BBECD00E5D20F /* libjson11.a in Frameworks */,
+				6A53C00B230BBECD00E5D20F /* librcoinbase.a in Frameworks */,
+				6A53C00C230BBECD00E5D20F /* libboost_filesystem.a in Frameworks */,
+				6A53C00D230BBECD00E5D20F /* libboost_date_time.a in Frameworks */,
+				6A53C00E230BBECD00E5D20F /* libomnicore.a in Frameworks */,
+				6A53C00F230BBECD00E5D20F /* libsoftfloat.a in Frameworks */,
+				6A53C010230BBECD00E5D20F /* liblibscrypt.a in Frameworks */,
+				6A53C011230BBECD00E5D20F /* libssl.a in Frameworks */,
+				6A53C012230BBECD00E5D20F /* libethcore.a in Frameworks */,
+				6A53C013230BBECD00E5D20F /* libbitcoinabc.a in Frameworks */,
+				6A53C014230BBECD00E5D20F /* libcoincrypto.a in Frameworks */,
+				6A53C015230BBECD00E5D20F /* libboost_iostreams.a in Frameworks */,
+				9BFFE28A3A17C03283BBB0CD /* libPods-walletApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73A1FF4EFC84111535417CBE /* libPods-walletApp-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A4950055406EF1DBAA8231A /* libPods-walletApp-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +284,9 @@
 		13B07FAE1A68108700A75B9A /* walletApp */ = {
 			isa = PBXGroup;
 			children = (
+				6A53BFC5230BBE6A00E5D20F /* RCTWallet.h */,
+				6A53BFC4230BBE6A00E5D20F /* RCTWallet.mm */,
+				6A53BFC6230BBE6A00E5D20F /* rnbridgewallet.hpp */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -154,10 +301,68 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A53BFCB230BBECC00E5D20F /* libbitcoin.a */,
+				6A53BFEC230BBECD00E5D20F /* libbitcoinabc.a */,
+				6A53BFD0230BBECC00E5D20F /* libbitcoincommon.a */,
+				6A53BFD4230BBECC00E5D20F /* libbitcoinhd.a */,
+				6A53BFCC230BBECC00E5D20F /* libblockchain-crypto-cxx.a */,
+				6A53BFCA230BBECC00E5D20F /* libboost_chrono.a */,
+				6A53BFE6230BBECD00E5D20F /* libboost_date_time.a */,
+				6A53BFE5230BBECD00E5D20F /* libboost_filesystem.a */,
+				6A53BFEE230BBECD00E5D20F /* libboost_iostreams.a */,
+				6A53BFDF230BBECD00E5D20F /* libboost_locale.a */,
+				6A53BFD1230BBECC00E5D20F /* libboost_regex.a */,
+				6A53BFE0230BBECD00E5D20F /* libboost_thread.a */,
+				6A53BFDB230BBECD00E5D20F /* libchainbase.a */,
+				6A53BFED230BBECD00E5D20F /* libcoincrypto.a */,
+				6A53BFCD230BBECC00E5D20F /* libcoinutils.a */,
+				6A53BFD3230BBECC00E5D20F /* libcrypto.a */,
+				6A53BFE2230BBECD00E5D20F /* libcryptopp.a */,
+				6A53BFDA230BBECD00E5D20F /* libdashcoin.a */,
+				6A53BFD5230BBECD00E5D20F /* libdevcore.a */,
+				6A53BFC8230BBECC00E5D20F /* libdevcrypto.a */,
+				6A53BFD7230BBECD00E5D20F /* libdogecoin.a */,
+				6A53BFCE230BBECC00E5D20F /* libeasy-http-static.a */,
+				6A53BFDD230BBECD00E5D20F /* libed25519.a */,
+				6A53BFD6230BBECD00E5D20F /* libeosio_chain.a */,
+				6A53BFEB230BBECD00E5D20F /* libethcore.a */,
+				6A53BFCF230BBECC00E5D20F /* libfc.a */,
+				6A53BFC9230BBECC00E5D20F /* libflatbuffers.a */,
+				6A53BFE3230BBECD00E5D20F /* libjson11.a */,
+				6A53BFD8230BBECD00E5D20F /* libkeystore.a */,
+				6A53BFE9230BBECD00E5D20F /* liblibscrypt.a */,
+				6A53BFDE230BBECD00E5D20F /* liblitecoinbase.a */,
+				6A53BFE1230BBECD00E5D20F /* libnumeric.a */,
+				6A53BFE7230BBECD00E5D20F /* libomnicore.a */,
+				6A53BFE4230BBECD00E5D20F /* librcoinbase.a */,
+				6A53BFD9230BBECD00E5D20F /* librnbridgewallet.a */,
+				6A53BFD2230BBECC00E5D20F /* libsecp256k1.a */,
+				6A53BFE8230BBECD00E5D20F /* libsoftfloat.a */,
+				6A53BFEA230BBECD00E5D20F /* libssl.a */,
+				6A53BFDC230BBECD00E5D20F /* libzlibstatic.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
+				4E58A987B51CDEFBEA2C1DD8 /* libPods-walletApp.a */,
+				3E6D22D75D0080B4F7FAC298 /* libPods-walletApp-tvOS.a */,
+				231D67186011590055006B8F /* libPods-walletApp-tvOSTests.a */,
+				18C9CC9CB649FEA86229EB18 /* libPods-walletAppTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		36A4C2AAC15E86C5048A6F87 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0ADAB32D438445890833734 /* Pods-walletApp.debug.xcconfig */,
+				C6AA1C63BC9A554ACBEFFF5C /* Pods-walletApp.release.xcconfig */,
+				F57D5D638BBF20011A6F3852 /* Pods-walletApp-tvOS.debug.xcconfig */,
+				047E87A6A39BD1774E3A6A32 /* Pods-walletApp-tvOS.release.xcconfig */,
+				03111863A1516C3C997DB3A9 /* Pods-walletApp-tvOSTests.debug.xcconfig */,
+				04675EDDA39DEC586DB3ED83 /* Pods-walletApp-tvOSTests.release.xcconfig */,
+				6033FB7EB16B17FA7F1784F7 /* Pods-walletAppTests.debug.xcconfig */,
+				F16EC627925513FAF00D6B9D /* Pods-walletAppTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -176,6 +381,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				B9F1FF334F9C43CFBC06C9B3 /* Resources */,
+				36A4C2AAC15E86C5048A6F87 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -194,8 +400,9 @@
 			sourceTree = "<group>";
 		};
 		B9F1FF334F9C43CFBC06C9B3 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
+				6A53C016230BC0EC00E5D20F /* icomoon.ttf */,
 				2CA30D48468D4F77ABDCDC31 /* antfill.ttf */,
 				DE8F4A0EE8664325BB1C2D80 /* antoutline.ttf */,
 				AD953F6C62914516814199D5 /* AntDesign.ttf */,
@@ -217,7 +424,6 @@
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -226,6 +432,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "walletAppTests" */;
 			buildPhases = (
+				B634E3A68587A7D271A2EA40 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -244,18 +451,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "walletApp" */;
 			buildPhases = (
+				AB9FD677BAE259F424A09206 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				B1F01013E8617DF0BD047C65 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = walletApp;
-			productName = "walletApp";
+			productName = walletApp;
 			productReference = 13B07F961A680F5B00A75B9A /* walletApp.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -263,6 +472,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "walletApp-tvOS" */;
 			buildPhases = (
+				6A93F36D3D30DAAEB9E97249 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -282,6 +492,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "walletApp-tvOSTests" */;
 			buildPhases = (
+				B9F92D40D8B8F15B3AF6888F /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -325,6 +536,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -368,6 +580,7 @@
 				AB2E9717A8C74866885C7DD1 /* Fontisto.ttf in Resources */,
 				11F9581A44FB4574AD2BD0CB /* Foundation.ttf in Resources */,
 				472E289AAA9F4D4B973ED453 /* Ionicons.ttf in Resources */,
+				6A53C017230BC0EC00E5D20F /* icomoon.ttf in Resources */,
 				89E396BFDABB491E805DA232 /* MaterialCommunityIcons.ttf in Resources */,
 				D198A0C56BA74F86BD9358D8 /* MaterialIcons.ttf in Resources */,
 				A2A1465458F142F691E880B9 /* Octicons.ttf in Resources */,
@@ -422,6 +635,142 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		6A93F36D3D30DAAEB9E97249 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-walletApp-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB9FD677BAE259F424A09206 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-walletApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1F01013E8617DF0BD047C65 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-walletApp/Pods-walletApp-resources.sh",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-walletApp/Pods-walletApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B634E3A68587A7D271A2EA40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-walletAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9F92D40D8B8F15B3AF6888F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-walletApp-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,6 +824,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A53BFC7230BBE6A00E5D20F /* RCTWallet.mm in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -527,6 +877,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6033FB7EB16B17FA7F1784F7 /* Pods-walletAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -549,6 +900,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F16EC627925513FAF00D6B9D /* Pods-walletAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -568,12 +920,49 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0ADAB32D438445890833734 /* Pods-walletApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = walletApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Folly\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/QrCode\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNFS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNGestureHandler\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNSVG\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNVectorIcons\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-Core\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-DevSupport\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTActionSheet\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTAnimation\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTBlob\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTLinking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTNetwork\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTSettings\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTText\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTVibration\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTWebSocket\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsi\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsiexecutor\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsinspector\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/glog\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-camera\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-cameraroll\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-image-picker\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-splash-screen\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/rn-fetch-blob\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/yoga\"",
+					/Users/iosdev/blockchain_crypto/buildios/lib/MinSizeRel,
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -587,11 +976,48 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6AA1C63BC9A554ACBEFFF5C /* Pods-walletApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = walletApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Folly\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/QrCode\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNFS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNGestureHandler\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNSVG\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNVectorIcons\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-Core\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-DevSupport\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTActionSheet\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTAnimation\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTBlob\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTLinking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTNetwork\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTSettings\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTText\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTVibration\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTWebSocket\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsi\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsiexecutor\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsinspector\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/glog\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-camera\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-cameraroll\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-image-picker\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-splash-screen\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/rn-fetch-blob\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/yoga\"",
+					/Users/iosdev/blockchain_crypto/buildios/lib/MinSizeRel,
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -605,6 +1031,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F57D5D638BBF20011A6F3852 /* Pods-walletApp-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -632,6 +1059,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 047E87A6A39BD1774E3A6A32 /* Pods-walletApp-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -659,6 +1087,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03111863A1516C3C997DB3A9 /* Pods-walletApp-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -685,6 +1114,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04675EDDA39DEC586DB3ED83 /* Pods-walletApp-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

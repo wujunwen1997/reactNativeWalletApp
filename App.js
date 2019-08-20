@@ -7,6 +7,7 @@
  */
 
 import React, {Fragment} from 'react';
+import SplashScreen from 'react-native-splash-screen';
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,8 +25,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App = () => {
-  return (
+class Apps extends React.Component {
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+  render(){
+     return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
@@ -70,6 +75,8 @@ const App = () => {
       </SafeAreaView>
     </Fragment>
   );
+  }
+ 
 };
 
 const styles = StyleSheet.create({
@@ -111,4 +118,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Apps;
