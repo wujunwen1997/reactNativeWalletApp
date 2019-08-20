@@ -120,10 +120,10 @@ class Restore extends React.Component {
                        style={inputs} selectionColor={'#9d9d9d'} />
             {this.state.checkUsername &&
             <View style={tipView}><Text style={toast}>身份名格式有误，不能为空且小于30个字符</Text></View>}
-            <TextInput placeholder='钱包密码(8-20个字符)' textContentType='password' style={inputs}
+            <TextInput placeholder='钱包密码(6位数字)' textContentType='password' style={inputs}
                        onChangeText={changePassword} secureTextEntry={true} selectionColor={'#9d9d9d'}/>
             {this.state.checkPassword &&
-            <View style={tipView}><Text style={toast}>密码格式有误，8-20个数组、字母组合</Text></View>}
+            <View style={tipView}><Text style={toast}>密码格式有误，请输入6位数字</Text></View>}
             <TextInput placeholder='重复输入密码' textContentType='password' style={inputs}
                        onChangeText={changePasswordTwo} secureTextEntry={true} selectionColor={'#9d9d9d'}/>
             {this.state.checkPasswordTwo &&

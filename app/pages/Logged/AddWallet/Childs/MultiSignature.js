@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Slider from "react-native-slider";
-import {StyleSheet, Text, View, TextInput, Picker, Image, KeyboardAvoidingView, Keyboard} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Picker, Image, KeyboardAvoidingView, Keyboard, ActivityIndicator} from 'react-native';
 import {Button, Provider, WingBlank, Toast, PickerView } from '@ant-design/react-native';
 import { connect } from 'react-redux';
 import {activeBtnDark, btnDark, createUser} from "../../../../styles/common";
@@ -29,7 +29,7 @@ class MultiSignature extends Component {
           cointype: '',
           wallet_name: '',
           nKeys: 4,
-          nRequired: 2,
+          nRequired: 1,
         }, {cointype: type})}
     })
   }
@@ -46,7 +46,7 @@ class MultiSignature extends Component {
     const onchangeCopayers= (val) => {
       dispatch({
         type: 'home/updateState',
-        payload: {MultiSignature: Object.assign({}, home.MultiSignature, {nKeys: val})}
+        payload: {MultiSignature: Object.assign({}, home.MultiSignature, {nKeys: val, nRequired: 1})}
       })
     };
     const onChangeNeedNum= (val) => {
@@ -113,7 +113,7 @@ class MultiSignature extends Component {
               <Text style={s.text}>所需的签名总数:</Text>
               <Text style={s.num}>{nRequired}</Text>
             </View>
-            <Slider maximumValue={3} minimumValue={1} step={1} value={parseInt(nRequired)}
+            <Slider maximumValue={model.home.MultiSignature.nKeys} minimumValue={1} step={1} value={parseInt(nRequired)}
                     style={s.slider} thumbTintColor={'#1C97E0'} onValueChange={onChangeNeedNum}
                     minimumTrackTintColor={'#1C97E0'} trackStyle={{height: 1}}/>
           </View>

@@ -136,7 +136,7 @@ class passwordEnter extends Component{
             }
             <Text style={{fontSize: 22,color: '#333', marginTop: 40}}>欢迎进入链付钱包</Text>
             <Text style={{marginTop: 60, fontSize: 16, color: '#333'}}>请输入解锁密码</Text>
-            <TextInput placeholder='请输入8-20位密码' textContentType='password' style={styles.inputDiv} value={home.enterPassword}
+            <TextInput placeholder='请输入密码' textContentType='password' style={styles.inputDiv} value={home.enterPassword}
                        onChangeText={changePassword} selectionColor={'#9d9d9d'} secureTextEntry={true}/>
           </View>
           <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={20}>

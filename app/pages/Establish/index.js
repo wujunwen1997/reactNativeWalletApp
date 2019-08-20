@@ -105,10 +105,10 @@ class Establish extends Component {
             style={Object.assign({}, inputs)} selectionColor={'#9d9d9d'} />
           {this.state.checkUsername &&
             <View style={tipView}><Text style={toast}>身份名格式有误，不能为空且小于30个字符</Text></View>}
-          <TextInput placeholder='密码(8-20个字符)' textContentType='password' style={inputs}
+          <TextInput placeholder='密码(6位数字)' textContentType='password' style={inputs}
             onChangeText={changePassword} selectionColor={'#9d9d9d'} secureTextEntry={true}/>
           {this.state.checkPassword &&
-            <View style={tipView}><Text style={toast}>密码格式有误，8-20个数组、字母组合</Text></View>}
+            <View style={tipView}><Text style={toast}>密码格式有误，请输入6位数字</Text></View>}
           <TextInput placeholder='重复输入密码' textContentType='password'
             style={inputs} selectionColor={'#9d9d9d'} secureTextEntry={true}
             onChangeText={changePasswordTwo} />

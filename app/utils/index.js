@@ -11,7 +11,7 @@ const checkUsername = (val) => {
   }
 };
 const checkPassword = (value) => {
-  const reg = /(?!^(\d+|[a-zA-Z]+|[~!@#$%^&*?]+)$)^[\w~!@#$%^&*?]{8,20}$/;
+  const reg = /^\d{6}$/;
   return reg.test(value)
 };
 async function requestReadPermission() {

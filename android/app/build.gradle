@@ -161,6 +161,22 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+             // 以下是需要添加的内容
+                        applicationVariants.all{ variant ->
+                            def buildName = variant.buildType.name
+                            variant.outputs.all { output ->
+                                def outputFile = output.outputFile
+                                if(outputFile != null && outputFile.name.endsWith('.apk')){
+                                    if(buildName == 'debug'){
+                                        def fileName = "app-debug.apk"
+                                        outputFileName = fileName
+                                    } else if (buildName == 'release'){
+                                        def fileName = "chainspayWallet.apk" // 修改app名称
+                                        outputFileName = fileName
+                                    }
+                                }
+                            }
+                        }
         }
     }
     // applicationVariants are e.g. debug, release

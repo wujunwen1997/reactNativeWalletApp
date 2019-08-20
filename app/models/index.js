@@ -213,7 +213,15 @@ export default {
       const resW = yield call(Wallet.get_withdraw_history, {coinid, wallet, ...obj.withdraw});
       if (resW.success) {
         if (resW.tx.length === 0) {
-          obj.withdraw.pagenum === 0 && activeTab === 1 && Toast.info('转出无数据', 1);
+          if (obj.withdraw.pagenum === 0 && activeTab === 1) {
+            Toast.info('转出无数据', 1);
+            yield put({
+              type: 'updateState',
+              payload: {
+                withdrawArr: []
+              }
+            })
+          }
           copyWithdrawArr.length > 0 && Toast.info('您已经刷到底了...', 2);
         } else {
           if (delSame(copyWithdrawArr, resW.tx)) {
