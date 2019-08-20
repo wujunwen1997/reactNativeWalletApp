@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { TouchableOpacity, FlatList, StyleSheet, Text, View, Dimensions} from 'react-native';
+import { TouchableOpacity, FlatList, StyleSheet, Text, View, Dimensions, Platform} from 'react-native';
 import { Button, Provider, Icon, Toast, List, WingBlank, WhiteSpace } from '@ant-design/react-native';
 import BoxShadow from "../../../components/BoxShadow";
 import Ficon from '../../../assets/Icomoon';
@@ -20,23 +20,36 @@ class AddWallet extends Component {
     ]
   };
   render() {
+    const walletType = (_) => {
+      return(
+        <View style={s.content}>
+        <Ficon name={_.icon} size={18} style={s.icon}/>
+        <View style={s.textView}>
+          <Text style={s.text}>{_.text}</Text>
+          <WhiteSpace size={'sm'}/>
+          <Text style={s.label}>{_.label}</Text>
+        </View>
+      </View>
+      )
+    }
+    const shadowWalletType = (_) => {
+      return(
+        <BoxShadow height={84} width={width -24}>
+          {walletType(_)}
+        </BoxShadow>
+      )
+    }
     return (
       <View style={s.container}>
         {
           this.state.config.map((_, i) => {
             return(
-                <TouchableOpacity key={i}
-                                  onPress={() => {this.props.navigation.navigate(_.next, {routeName: _.route})}} activeOpacity={0.8}>
-                  <BoxShadow height={84} width={width -24}>
-                  <View style={s.content}>
-                    <Ficon name={_.icon} size={18} style={s.icon}/>
-                    <View style={s.textView}>
-                      <Text style={s.text}>{_.text}</Text>
-                      <WhiteSpace size={'sm'}/>
-                      <Text style={s.label}>{_.label}</Text>
-                    </View>
-                  </View>
-                  </BoxShadow>
+                <TouchableOpacity key={i} 
+                onPress={() => {this.props.navigation.navigate(_.next, {routeName: _.route})}} activeOpacity={0.8}>
+                  {
+                    Platform.OS === 'ios' ? walletType(_) : shadowWalletType(_)
+                  }
+                 
                 </TouchableOpacity>
             )
           })
@@ -49,7 +62,8 @@ const s = StyleSheet.create({
   container: {flex: 1, paddingLeft: 12, paddingRight: 12, backgroundColor: '#F6F6F6',
   paddingTop: 24},
   content: {height: 84, backgroundColor: '#FFF', borderRadius: 3,
-    flexDirection: 'row', alignItems: 'center',},
+    flexDirection: 'row', alignItems: 'center', marginBottom:20, shadowColor: '#333', shadowOpacity: 0.2,
+  shadowRadius: 2, shadowOffset:{width: 0, height: 0}},
   icon: {backgroundColor: '#358BFE', borderRadius: 32, padding: 8, marginLeft: 32, color:'#FFFFFF'},
   textView: {marginLeft:18},
   text: {color: '#333333', fontSize: 15, lineHeight: 22},

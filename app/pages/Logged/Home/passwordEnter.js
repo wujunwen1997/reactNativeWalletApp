@@ -155,7 +155,7 @@ class passwordEnter extends Component{
 const styles = StyleSheet.create({
   container: {flex: 1, backgroundColor:'#ffffff', justifyContent:'space-between'},
   input: {marginTop :24,height: 300, padding: 12},
-  inputDiv: {width: '100%', borderBottomWidth: 0.8, borderColor: '#EFEFEF', marginTop: 30 },
+  inputDiv: {width: '100%', borderBottomWidth: 0.8, borderColor: '#EFEFEF', marginTop: 30, height: 44 },
   text: { color: '#358BFE', height: 40,lineHeight:40,width: '100%', textAlign: 'center',},
   Model: { padding: 0, justifyContent: 'center'},
   div: {flexDirection: 'row', justifyContent: 'space-between', height: 40, alignItems: 'center',borderBottomWidth: 0.8, borderColor: '#efefef',},
