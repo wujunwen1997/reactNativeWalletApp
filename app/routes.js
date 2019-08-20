@@ -49,8 +49,8 @@ const defaultNavigationOptions= {
   headerTitleContainerStyle,
   headerStyle: {
     backgroundColor: '#1C97E0',
-    height: 55 + StatusBar.currentHeight,
-    paddingTop:StatusBar.currentHeight,
+    height: 75,
+    paddingTop:20,
     shadowOpacity: 0,
     shadowColor: 'transparent',
     borderBottomWidth: 0,
@@ -109,8 +109,8 @@ const AuthStack = createStackNavigator(
       headerTitleContainerStyle,
       headerStyle: {
         textAlign: 'center',
-        height: 55 + StatusBar.currentHeight,
-        paddingTop:StatusBar.currentHeight,
+        height: 75,
+        paddingTop:20,
         shadowOpacity: 0,
         shadowColor: 'transparent',
         borderBottomWidth: 0.8,

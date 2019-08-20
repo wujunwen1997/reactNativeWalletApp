@@ -8,6 +8,7 @@ class AuthLoadingScreen extends React.Component {
     header: null,
   };
   componentDidMount() {
+    SplashScreen.hide();
     const {model, navigation, dispatch} = this.props;
     const {home} = model;
     const {navigate} = navigation;
