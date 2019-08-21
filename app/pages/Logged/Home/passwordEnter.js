@@ -9,13 +9,12 @@ import {
   Keyboard,
   Image,
   AsyncStorage,
-  Platform, KeyboardAvoidingView
+  Platform
 } from 'react-native';
-import {Toast, WingBlank, Provider, Button, Icon, Modal} from '@ant-design/react-native';
+import {Toast, Provider, Button, Icon, Modal} from '@ant-design/react-native';
 import { connect } from 'react-redux';
 import Ficon from '../../../assets/Icomoon';
-import BackImage from "../../../components/headerView/backImage";
-import {activeBtnDark, btnDark, createUser} from "../../../styles/common";
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 
 class passwordEnter extends Component{
   static navigationOptions = ({navigation}) => {
@@ -23,6 +22,10 @@ class passwordEnter extends Component{
       header: null
     };
   };
+  state = {
+    code: '',
+  };
+  pinInput = React.createRef();
   componentDidMount() {
     const {dispatch} = this.props;
     if (Platform.OS === 'ios') {
@@ -30,28 +33,36 @@ class passwordEnter extends Component{
     } else {
       dispatch({type: 'home/getPERMISSIONS', payload: ''})
     }
-    //
   }
-  render() {
+  _checkCode = (code) => {
     const {dispatch, model, navigation} = this.props;
     const {home} = model;
-    const changePassword = (val) => {
-      dispatch({
-        type: 'home/updateState',
-        payload: {enterPassword: val }
-      })
-    };
-    const onEnter = () => {
-      Keyboard.dismiss();
-      home.Wallet.openIdentity({password: home.enterPassword}).then(res => {
-        if (res.success) {
+    this.setState({ code: '' });
+    home.Wallet.openIdentity({password: code}).then(res => {
+      if (res.success) {
+        if (home.haveMnemonic) {
           dispatch({
             type: 'home/updateState',
             payload: {
-              enterPassword: '',
+              mnemonics: res.mnemonic.split(" "),
+              mnemonic:res.mnemonic,
+              copyM: []
             }
           });
-          if (home.haveMnemonic) {
+          navigation.navigate('BackupPrompt');
+          return;
+        }
+        AsyncStorage.getItem('haveMnemonic').then(u => {
+          if (u === 'yes') {
+            dispatch({
+              type: 'home/updateState',
+              payload: {
+                walletNickName: res.nick,
+                identity: res.identity,
+              }
+            });
+            navigation.navigate('Home');
+          } else {
             dispatch({
               type: 'home/updateState',
               payload: {
@@ -60,36 +71,18 @@ class passwordEnter extends Component{
                 copyM: []
               }
             });
-            navigation.navigate('BackupPrompt');
-            return;
+            navigation.navigate('BackupPrompt')
           }
-          AsyncStorage.getItem('haveMnemonic').then(u => {
-            if (u === 'yes') {
-              dispatch({
-                type: 'home/updateState',
-                payload: {
-                  walletNickName: res.nick,
-                  identity: res.identity,
-                }
-              });
-              navigation.navigate('Home');
-            } else {
-              dispatch({
-                type: 'home/updateState',
-                payload: {
-                  mnemonics: res.mnemonic.split(" "),
-                  mnemonic:res.mnemonic,
-                  copyM: []
-                }
-              });
-              navigation.navigate('BackupPrompt')
-            }
-          })
-        } else {
-          Toast.fail('密码错误，请重新输入', 1)
-        }
-      })
-    };
+        })
+      } else {
+        Toast.fail('密码错误，请重新输入', 1);
+      }
+    })
+  }
+  render() {
+    const { code } = this.state;
+    const {dispatch, model} = this.props;
+    const {home} = model;
     async function requestMultiplePermission() {
       const permissions = [];
       home.PERMISSIONS[0].load !== 'duihao' && permissions.push(PermissionsAndroid.PERMISSIONS.CAMERA);
@@ -106,11 +99,13 @@ class passwordEnter extends Component{
         Toast.fail('授权发生错误，请重启', 2)
       }
     }
-
     return (
       <Provider>
-        <WingBlank style={styles.container}>
-          <StatusBar barStyle={'dark-content'} animated={true}/>
+        <View style={styles.container}>
+          <StatusBar barStyle={'dark-content'} animated={false} backgroundColor={'#fff'}/>
+          <View style={styles.header}>
+            <Text style={styles.tips}>身份验证</Text>
+          </View>
           <View style={styles.input}>
             {
               home.visible && <Modal transparent visible={true} style={styles.Model} animationType="slide-up">
@@ -134,27 +129,31 @@ class passwordEnter extends Component{
                 </View>
               </Modal>
             }
-            <Text style={{fontSize: 22,color: '#333', marginTop: 40}}>欢迎进入链付钱包</Text>
-            <Text style={{marginTop: 60, fontSize: 16, color: '#333'}}>请输入解锁密码</Text>
-            <TextInput placeholder='请输入密码' textContentType='password' style={styles.inputDiv} value={home.enterPassword}
-                       onChangeText={changePassword} selectionColor={'#9d9d9d'} secureTextEntry={true}/>
+
+            <Text style={styles.tipText}>请输入解锁密码</Text>
+            <SmoothPinCodeInput ref={this.pinInput} value={code} password={true} cellSpacing={0.5} restrictToNumbers={true}
+                                textStyleFocused={null} mask={'*'} maskDelay={100} autoFocus={true}
+                                cellStyle={{
+                borderWidth: 0.8,
+                borderColor: '#EFEFEF',
+                backgroundColor: 'white',
+              }} cellStyleFocused={null}
+              codeLength={6}
+              onTextChange={code => this.setState({ code })}
+              onFulfill={this._checkCode}
+            />
           </View>
-          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={20}>
-            <WingBlank style={styles.btnBot}>
-              <Button style={btnDark} type="primary"
-                      activeStyle={activeBtnDark} onPress={onEnter}>
-                <Text style={createUser}>完成</Text>
-              </Button>
-            </WingBlank>
-          </KeyboardAvoidingView>
-        </WingBlank>
+        </View>
       </Provider>
     );
   }
 }
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor:'#ffffff', justifyContent:'space-between'},
-  input: {marginTop :24,height: 300, padding: 12},
+  container: {flex: 1, backgroundColor:'#F6F6F6', alignItems: 'center' },
+  header: { backgroundColor: '#fff', paddingTop: 24, width: '100%'},
+  input: {marginTop :24, padding: 12, alignItems: 'center'},
+  tipText: {marginBottom: 20, fontSize: 16, color: '#333', textAlign: 'center'},
+  tips: {height: 50, textAlign: 'center', lineHeight: 50, fontSize: 18, color: '#333'},
   inputDiv: {width: '100%', borderBottomWidth: 0.8, borderColor: '#EFEFEF', marginTop: 30 },
   text: { color: '#358BFE', height: 40,lineHeight:40,width: '100%', textAlign: 'center',},
   Model: { padding: 0, justifyContent: 'center'},
@@ -165,7 +164,6 @@ const styles = StyleSheet.create({
   isCheck: {color: '#b8b8b8'},
   top: {height: 100,display: 'flex', alignItems: 'center', borderBottomWidth: 0.8, borderColor: '#efefef',},
   head: {height: 60, width: 60,  },
-  btnBot: {marginBottom: 64},
   tip: {marginTop: 10, fontWeight: 'bold'}
 });
 export default connect(model => ({ model }))(passwordEnter)

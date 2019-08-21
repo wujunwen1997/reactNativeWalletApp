@@ -114,10 +114,10 @@ class BackupMnemonics extends Component {
             </View>
           </View>
           <View style={s.bottom}>
-            {/*<Button style={btnDark} type="primary" onPress={next1}*/}
-              {/*activeStyle={activeBtnDark}>*/}
-               {/*<Text style={createUser}>{NextText}</Text>*/}
-            {/*</Button>*/}
+            <Button style={btnDark} type="primary" onPress={next1}
+              activeStyle={activeBtnDark}>
+               <Text style={createUser}>{NextText}</Text>
+            </Button>
             <Button style={btnDark} type="primary" onPress={next}
                     activeStyle={activeBtnDark}>
               <Text style={createUser}>{NextText}</Text>

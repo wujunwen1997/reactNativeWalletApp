@@ -18,7 +18,7 @@ class AuthLoadingScreen extends React.Component {
         type: 'home/updateState',
         payload: {isIdentity:!!(res.is_exist)}
       });
-      navigate(res.is_exist ? 'App' :　'Auth');
+      navigate(res.is_exist ? 'PasswordEnter' :　'Auth');
       home.coinTypes && home.coinTypes.length === 0 && dispatch({type: 'home/getCoinTypes', payload: ''});
     });
   }
