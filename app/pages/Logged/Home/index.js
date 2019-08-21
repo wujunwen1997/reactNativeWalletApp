@@ -115,12 +115,14 @@ class HomeIndex extends Component {
                    shadowRadius: 2, shadowOffset:{width: 0, height: 0}}}>
                {centerList(u, i)}
                   </View>
-          )            
+          )
       } else {
-        <BoxShadow height={((u.show ? u.arr : (u.arr.length > 1 ? [1, 1] : [1])).length + 1) * 54}
-        width={width-24}>
-    {centerList(u, i)}
-       </BoxShadow>
+        return(
+          <BoxShadow height={((u.show ? u.arr : (u.arr.length > 1 ? [1, 1] : [1])).length + 1) * 54}
+                     width={width-24}>
+            {centerList(u, i)}
+          </BoxShadow>
+        )
       }
     }
     const isHaveWallet = () => {

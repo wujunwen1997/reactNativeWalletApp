@@ -56,12 +56,14 @@ class ChoiceCurrency extends Component {
     )
   }
 }
+const android =  {height: 64, backgroundColor: '#FFF', borderRadius: 3,
+  flexDirection: 'row', alignItems: 'center',shadowColor: '#333', shadowOpacity: 0.2,
+  shadowRadius: 2, shadowOffset:{width: 0, height: 0}}
+
 const s = StyleSheet.create({
   container: { flex: 1, paddingTop: 24,},
   container1: {height: 'auto', width: '100%', alignItems: 'center'},
-  content: {height: 64, backgroundColor: '#FFF', borderRadius: 3,marginTop:20,
-    flexDirection: 'row', alignItems: 'center',shadowColor: '#333', shadowOpacity: 0.2,
-    shadowRadius: 2, shadowOffset:{width: 0, height: 0}},
+  content: Platform.OS === 'ios' ? Object.assign({}, android, {marginTop:20,}) : android,
   text: {color: '#333333', fontSize: 15, marginLeft: 16},
   icon: {marginLeft: 32,}
 });

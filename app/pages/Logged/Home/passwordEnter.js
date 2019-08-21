@@ -26,14 +26,14 @@ class passwordEnter extends Component{
     code: '',
   };
   pinInput = React.createRef();
-  componentDidMount() {
-    const {dispatch} = this.props;
-    if (Platform.OS === 'ios') {
-
-    } else {
-      dispatch({type: 'home/getPERMISSIONS', payload: ''})
-    }
-  }
+  // componentDidMount() {
+  //   const {dispatch} = this.props;
+  //   if (Platform.OS === 'ios') {
+  //
+  //   } else {
+  //     dispatch({type: 'home/getPERMISSIONS', payload: ''})
+  //   }
+  // }
   _checkCode = (code) => {
     const {dispatch, model, navigation} = this.props;
     const {home} = model;
