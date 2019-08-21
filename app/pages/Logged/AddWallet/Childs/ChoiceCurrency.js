@@ -3,7 +3,7 @@ import Svg from '../../../../components/Svg';
 import BoxShadow from "../../../../components/BoxShadow";
 import { connect } from 'react-redux';
 import {
-  StyleSheet, Text, View, StatusBar,ActivityIndicator, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+  StyleSheet, Text, View, StatusBar,ActivityIndicator,Platform, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
 import BackImage from "../../../../components/headerView/backImage";
 import HeaderView from "../../../../components/headerView";
 
@@ -21,6 +21,21 @@ class ChoiceCurrency extends Component {
   render() {
     const {navigation, model} = this.props;
     const {home} = model;
+    const walletType = (_) => {
+      return(
+        <View style={s.content}>
+                      <Svg icon={_.symbol} style={s.icon} width={30} height={30}/>
+                      <Text style={s.text}>{_.name} ({_.symbol})</Text>
+                    </View>
+      )
+    }
+    const shadowWalletType = (_) => {
+      return(
+        <BoxShadow width={width-24} height={64}>
+                   {walletType(_)}
+        </BoxShadow>
+      )
+    }
     return (
       <View style={s.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -29,13 +44,8 @@ class ChoiceCurrency extends Component {
             home.coinTypes.map((_, i) => {
               return(
                 <TouchableOpacity key={i} onPress={() => {this.props.navigation.navigate(navigation.getParam('routeName'), {type: _.type})}}
-                                  activeOpacity={0.8}>
-                  <BoxShadow width={width-24} height={64}>
-                    <View style={s.content}>
-                      <Svg icon={_.symbol} style={s.icon} width={30} height={30}/>
-                      <Text style={s.text}>{_.name} ({_.symbol})</Text>
-                    </View>
-                  </BoxShadow>
+                                  activeOpacity={0.8} style={Platform.OS === 'ios' && { width: '90%'}}>
+                 { Platform.OS === 'ios' ? walletType(_) : shadowWalletType(_)}
                 </TouchableOpacity>
               )
             })
@@ -49,8 +59,9 @@ class ChoiceCurrency extends Component {
 const s = StyleSheet.create({
   container: { flex: 1, paddingTop: 24,},
   container1: {height: 'auto', width: '100%', alignItems: 'center'},
-  content: {height: 64, backgroundColor: '#FFF', borderRadius: 3,
-    flexDirection: 'row', alignItems: 'center',},
+  content: {height: 64, backgroundColor: '#FFF', borderRadius: 3,marginTop:20,
+    flexDirection: 'row', alignItems: 'center',shadowColor: '#333', shadowOpacity: 0.2,
+    shadowRadius: 2, shadowOffset:{width: 0, height: 0}},
   text: {color: '#333333', fontSize: 15, marginLeft: 16},
   icon: {marginLeft: 32,}
 });

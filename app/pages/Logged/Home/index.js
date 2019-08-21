@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {
   TouchableOpacity, RefreshControl, StyleSheet, Text, View, StatusBar, ActivityIndicator,
-  ScrollView, Dimensions, DeviceEventEmitter, Linking, Image,
+  ScrollView, Dimensions, DeviceEventEmitter, Linking, Image,Platform
 } from 'react-native';
 import { Button, Provider, Icon } from '@ant-design/react-native';
 import HeaderView from '../../../components/headerView/index'
@@ -11,7 +11,6 @@ import Svg from '../../../components/Svg';
 import Ficon from '../../../assets/Icomoon';
 
 const width = Dimensions.get('window').width;
-
 class HomeIndex extends Component {
   static navigationOptions = ({navigation}) => {
     return {
@@ -77,6 +76,53 @@ class HomeIndex extends Component {
         type: 'home/getWalletList'
       })
     };
+    const centerList = (u, i) => {
+      return(
+        <View style={s.content}>
+        <TouchableOpacity onPress={() => onChangeShowThis(u, i)}
+                          activeOpacity={u.arr.length > 2 ? 0.8 : 1}>
+          <View style={s.title}>
+            <View style={s.leftCon}>
+              <Svg style={s.icon} icon={u.name} width={26} height={26}/>
+              <Text style={s.text}>{u.name}钱包</Text>
+            </View>
+            {
+              u.arr.length > 2 && <Ficon name={u.show ? 'up' : 'xia'} style={s.down}/>
+            }
+          </View>
+        </TouchableOpacity>
+        {
+          (u.show ? u.arr : u.arr.slice(0, 2)).map((item,i) => {
+            return(
+              <TouchableOpacity onPress={() => goWallet(item)} key={i} style={s.wallet}
+                                activeOpacity={u.arr.length > 2 ? 0.8 : 1}>
+                <View style={s.leftCon}>
+                  <Ficon name={'qianbaoming'} style={s.wIcon} size={22} color={'#358BFE'}/>
+                  <Text style={s.wName}>{item.wallet_name}</Text>
+                </View>
+              </TouchableOpacity>
+            )
+          })
+        }
+      </View>
+      )
+    }
+    const getIos = (u, i) => {
+      if (Platform.OS === 'ios') {
+          return(
+            <View height={((u.show ? u.arr : (u.arr.length > 1 ? [1, 1] : [1])).length + 1) * 54}
+                   width={width-24} style={{shadowColor: '#333', shadowOpacity: 0.2,
+                   shadowRadius: 2, shadowOffset:{width: 0, height: 0}}}>
+               {centerList(u, i)}
+                  </View>
+          )            
+      } else {
+        <BoxShadow height={((u.show ? u.arr : (u.arr.length > 1 ? [1, 1] : [1])).length + 1) * 54}
+        width={width-24}>
+    {centerList(u, i)}
+       </BoxShadow>
+      }
+    }
     const isHaveWallet = () => {
       return(
         <ScrollView showsVerticalScrollIndicator={false} style={{zIndex: 999,}}
@@ -91,35 +137,9 @@ class HomeIndex extends Component {
             home.walletArr.map((u, i)=> {
               return(
                 <View style={{paddingLeft: 12, paddingRight: 12,}} key={i}>
-                  <BoxShadow height={((u.show ? u.arr : (u.arr.length > 1 ? [1, 1] : [1])).length + 1) * 54} width={width-24}>
-                    <View style={s.content}>
-                      <TouchableOpacity onPress={() => onChangeShowThis(u, i)}
-                                        activeOpacity={u.arr.length > 2 ? 0.8 : 1}>
-                        <View style={s.title}>
-                          <View style={s.leftCon}>
-                            <Svg style={s.icon} icon={u.name} width={26} height={26}/>
-                            <Text style={s.text}>{u.name}钱包</Text>
-                          </View>
-                          {
-                            u.arr.length > 2 && <Ficon name={u.show ? 'up' : 'xia'} style={s.down}/>
-                          }
-                        </View>
-                      </TouchableOpacity>
-                      {
-                        (u.show ? u.arr : u.arr.slice(0, 2)).map((item,i) => {
-                          return(
-                            <TouchableOpacity onPress={() => goWallet(item)} key={i} style={s.wallet}
-                                              activeOpacity={u.arr.length > 2 ? 0.8 : 1}>
-                              <View style={s.leftCon}>
-                                <Ficon name={'qianbaoming'} style={s.wIcon} size={22} color={'#358BFE'}/>
-                                <Text style={s.wName}>{item.wallet_name}</Text>
-                              </View>
-                            </TouchableOpacity>
-                          )
-                        })
-                      }
-                    </View>
-                  </BoxShadow>
+                  {
+                    getIos(u, i)
+                  }
                 </View>
               )
             })
@@ -158,7 +178,7 @@ const s = StyleSheet.create({
   container: {flex: 1, backgroundColor: '#FFF',},
   blue: {backgroundColor: '#1C97E0', height: 70},
   list: {flex: 1, marginTop: -60,zIndex: 999,alignItems: 'center'},
-  content: {backgroundColor: '#fff',height: '100%',borderRadius: 3,},
+  content: {backgroundColor: '#fff',height: '100%',borderRadius: 3,width: '100%'},
   title: {height: 54, borderBottomWidth: 0.8, borderBottomColor: '#f9f9f9',...commonFlex, paddingRight: 10},
   icon: {marginLeft: 20,},
   down: {padding: 6, color: '#358BFE',marginTop: 4},
