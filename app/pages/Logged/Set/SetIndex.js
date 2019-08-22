@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
-import {StyleSheet, Text, View, TouchableOpacity, StatusBar, TextInput, Keyboard} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, StatusBar, TextInput, Keyboard, AsyncStorage} from 'react-native';
 import {WingBlank, Modal, Provider, Toast, Portal} from '@ant-design/react-native';
 import BackImage from "../../../components/headerView/backImage";
 import Ficon from '../../../assets/Icomoon';
 import { connect } from 'react-redux';
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 
 class SetIndex extends Component {
   static navigationOptions = ({navigation}) => {
@@ -19,6 +20,7 @@ class SetIndex extends Component {
     this.setState({ visible1: true });
   };
   state = {
+    code: '',
     visible: false,
     visible1: false,
     arr: [
@@ -29,8 +31,51 @@ class SetIndex extends Component {
       { icon: 'zhuxiao', text: '注销钱包', event: this.onCancellation,  size: 18, style: {marginLeft: 1.9, marginRight: 11, width: 20}},
     ]
   };
+  pinInput = React.createRef();
+  _checkCode1 = (code) => { this._checkCode(code, 'BackupPrompt')};
+  _checkCode = (code, route) => {
+  const {dispatch, model, navigation} = this.props;
+  const {home} = model;
+  this.setState({ code: '' });
+  home.Wallet.openIdentity({password: code}).then(res => {
+    if (res.success) {
+      const key = Toast.loading(route !== 'BackupPrompt' ? '身份注销中...' : '正在跳转...', 20);
+      if (route !== "BackupPrompt") {
+        home.Wallet.destroy_identity().then(res => {
+          dispatch({
+            type: 'home/updateState',
+            payload: {enterPassword: '' }
+          });
+          Portal.remove(key);
+          navigation.navigate('AuthLoading')
+        })
+      } else {
+        model.home.Wallet.openIdentity({password: code}).then(res => {
+          dispatch({
+            type: 'home/updateState',
+            payload: {
+              enterPassword: '',
+              haveMnemonic: true,
+              mnemonics: res.mnemonic.split(" "),
+              mnemonic:res.mnemonic,
+              copyM: []
+            },
+          });
+          navigation.navigate('BackupPrompt')
+        })
+      }
+    } else {
+      Keyboard.dismiss();
+      this.pinInput.current.shake()
+        .then(() => {
+          Toast.fail('密码错误，请重新输入', 1)
+        });
+    }
+  })
+  }
   render() {
     const {navigation, dispatch, model} = this.props;
+    const { code } = this.state;
     const {Wallet, enterPassword} = model.home;
     const goRoute = (u) => {
       if (u.route) {
@@ -39,81 +84,51 @@ class SetIndex extends Component {
         u.event(u.isCopy)
       }
     };
-    const footerButtons = [
-        { text: '取消', onPress: () => { this.setState({ visible: false });} },
-        { text: '确认', onPress: () => {checkPassword('AuthLoading')} },
-    ];
-    const footerButtons1 = [
-      { text: '取消', onPress: () => { this.setState({ visible1: false });} },
-      { text: '确认', onPress: () => {checkPassword('BackupPrompt')} },
-    ];
-    const checkPassword = (route) => {
-      Wallet.openIdentity({password: enterPassword}).then(res => {
-        Keyboard.dismiss();
-        if (res.success) {
-          const key = Toast.loading(route === 'AuthLoading' ? '身份注销中...' : '正在跳转...', 20);
-          if (route === 'AuthLoading') {
-            Wallet.destroy_identity().then(res => {
-              dispatch({
-                type: 'home/updateState',
-                payload: {enterPassword: '' }
-              });
-              Portal.remove(key);
-              navigation.navigate(route)
-            })
-          } else {
-            model.home.Wallet.openIdentity({password: enterPassword}).then(res => {
-              dispatch({
-                type: 'home/updateState',
-                payload: {
-                  enterPassword: '',
-                  haveMnemonic: true,
-                  mnemonics: res.mnemonic.split(" "),
-                  mnemonic:res.mnemonic,
-                  copyM: []
-                },
-              });
-              navigation.navigate(route)
-            })
-          }
-        } else {
-          Toast.fail('密码错误，请重新输入', 2)
-        }
-      })
-    };
-    const changePassword = (val) => {
-      dispatch({
-        type: 'home/updateState',
-        payload: {enterPassword: val }
-      })
-    };
     return (
       <Provider>
         <Modal
           title="请输入密码"
           transparent
+          onClose={() => this.setState({ visible1: false })}
           maskClosable
           visible={this.state.visible1}
-          footer={footerButtons1}
           style={{position: 'absolute', top:20}}
         >
           <View style={s.input}>
-            <TextInput textContentType='password' style={s.inputDiv} autoFocus={true}
-                       onChangeText={changePassword} selectionColor={'#9d9d9d'} secureTextEntry={true}/>
+            <SmoothPinCodeInput ref={this.pinInput} value={code} password={true} cellSpacing={3} restrictToNumbers={true}
+                                textStyleFocused={null} mask={'*'} maskDelay={100} autoFocus={true} cellSize={42}
+                                cellStyle={{
+                                  borderWidth: 0.5,
+                                  borderColor: '#d8d8d8',
+                                  backgroundColor: 'white',
+                                }} cellStyleFocused={null}
+                                codeLength={6}
+                                onTextChange={code => this.setState({ code })}
+                                onFulfill={this._checkCode1}
+            />
           </View>
         </Modal>
         <Modal
           title="请输入密码"
           transparent
+          onClose={() => this.setState({ visible: false })}
           maskClosable
           visible={this.state.visible}
-          footer={footerButtons}
           style={{position: 'absolute', top:20}}
         >
           <Text style={{}}>警告： 注销钱包是清除此钱包，请确认是否保有助记词，否则会彻底失去此钱包。</Text>
           <View style={s.input}>
-            <TextInput textContentType='password' style={s.inputDiv} autoFocus={true}
-                       onChangeText={changePassword} selectionColor={'#9d9d9d'} secureTextEntry={true}/>
+            <SmoothPinCodeInput ref={this.pinInput} value={code} password={true} cellSpacing={3} restrictToNumbers={true}
+                                textStyleFocused={null} mask={'*'} maskDelay={100} autoFocus={true} cellSize={42}
+                                cellStyle={{
+                                  borderWidth: 0.5,
+                                  borderColor: '#d8d8d8',
+                                  backgroundColor: 'white',
+                                }} cellStyleFocused={null}
+                                codeLength={6}
+                                onTextChange={code => this.setState({ code })}
+                                onFulfill={this._checkCode}
+            />
           </View>
         </Modal>
         <WingBlank style={s.container}>
@@ -145,7 +160,7 @@ const s = StyleSheet.create({
   view: {height: '100%', flexDirection: 'row', alignItems: 'center', color: '#515151'},
   name: {color: '#4f4f4f'},
   input: {height: 40, backgroundColor: '#FFF', fontSize: 15,borderBottomWidth: 0.5,marginTop: 10,borderColor: '#EFEFEF',
-    alignItems: 'center', justifyContent: 'center', color: '#666'},
+    alignItems: 'center', justifyContent: 'center', color: '#666',},
   inputDiv: {width: '100%',paddingLeft: 12, borderWidth: 0.5, height: 40, borderRadius: 5, borderColor: '#d8d8d8'},
 });
 export default connect(model => ({ model }))(SetIndex)

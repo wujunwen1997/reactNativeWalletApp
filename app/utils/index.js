@@ -52,7 +52,7 @@ const saveBase64Img = (base64Img) => {
         CameraRoll.saveToCameraRoll(downloadDest).then((e1) => {
           Toast.success('保存成功,请查看相册-最新', 2)
         }).catch((e2) => {
-          Toast.info('没有读写权限。请在[设置]-[应用权限]开启', 2)
+          requestReadPermission()
         })
       } catch (e3) {
         // Alert.alert(JSON.stringify(e3))

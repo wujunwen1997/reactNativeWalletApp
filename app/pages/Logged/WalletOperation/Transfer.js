@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
-import {StyleSheet, Text, View, StatusBar, TextInput} from 'react-native';
-import { Button, WingBlank, Radio, Provider, Toast, Modal } from '@ant-design/react-native';
+import {StyleSheet, Text, View, StatusBar, TextInput, Keyboard} from 'react-native';
+import {Button, WingBlank, Radio, Provider, Toast, Modal, Portal} from '@ant-design/react-native';
 import HeaderView from "../../../components/headerView/index";
 import BackImage from "../../../components/headerView/backImage";
 import {btnDark, activeBtnDark, createUser} from "../../../styles/common";
 import { connect } from 'react-redux';
 import  {DeviceEventEmitter} from 'react-native';
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 
 const RadioItem = Radio.RadioItem;
 const seasons = [
@@ -34,7 +35,9 @@ class Transfer extends Component {
     loading: false,
     disabled: false,
     visible: false,
-  }
+    code: '',
+  };
+  pinInput = React.createRef();
   onClose = () => {
     this.setState({
       visible: false,
@@ -52,7 +55,8 @@ class Transfer extends Component {
   }
   render() {
     const {dispatch, model, navigation} = this.props;
-    const {feemode, Wallet, address, amount, coin, walletItem, enterPassword} = model.home;
+    const { code } = this.state;
+    const {feemode, Wallet, address, amount, coin, walletItem} = model.home;
     const onChangeAmount = (val) => {
       dispatch({
         type: 'home/updateState',
@@ -88,12 +92,6 @@ class Transfer extends Component {
       }
       this.setState({ visible: true });
     };
-    const changePassword = (val) => {
-      dispatch({
-        type: 'home/updateState',
-        payload: {enterPassword: val }
-      })
-    };
     const goOnTran = () => {
       this.setState({
         loading: true, disabled: true
@@ -112,38 +110,45 @@ class Transfer extends Component {
         }
       })
     }
-    const checkPassword = () => {
-      Wallet.openIdentity({password: enterPassword}).then(res => {
+    const _checkCode = (code, route) => {
+      const {dispatch, model, navigation} = this.props;
+      const {home} = model;
+      this.setState({ code: '' });
+      home.Wallet.openIdentity({password: code}).then(res => {
         if (res.success) {
-          dispatch({
-            type: 'home/updateState',
-            payload: {enterPassword: '' }
-          })
           this.setState({ visible: false });
           goOnTran()
         } else {
-          Toast.fail('密码错误，请重新输入', 2)
+          Keyboard.dismiss();
+          this.pinInput.current.shake()
+            .then(() => {
+              Toast.fail('密码错误，请重新输入', 1)
+            });
         }
       })
     }
-    const footerButtons = [
-      { text: '取消', onPress: () => console.log('cancel') },
-      { text: '确认', onPress: () => {checkPassword()} },
-    ];
     return (
       <Provider>
         <Modal
           title="请输入密码"
           transparent
-          onClose={this.onClose}
+          onClose={() => this.setState({ visible: false })}
           maskClosable
           visible={this.state.visible}
-          footer={footerButtons}
           style={{position: 'absolute', top:20}}
         >
           <View style={s.input}>
-            <TextInput textContentType='password' style={s.inputDiv} autoFocus={true}
-                       onChangeText={changePassword} selectionColor={'#9d9d9d'} secureTextEntry={true}/>
+            <SmoothPinCodeInput ref={this.pinInput} value={code} password={true} cellSpacing={3} restrictToNumbers={true}
+                                textStyleFocused={null} mask={'*'} maskDelay={100} autoFocus={true} cellSize={42}
+                                cellStyle={{
+                                  borderWidth: 0.5,
+                                  borderColor: '#d8d8d8',
+                                  backgroundColor: 'white',
+                                }} cellStyleFocused={null}
+                                codeLength={6}
+                                onTextChange={code => this.setState({ code })}
+                                onFulfill={_checkCode}
+            />
           </View>
         </Modal>
       <WingBlank style={s.container}>

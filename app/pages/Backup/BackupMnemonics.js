@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import {StyleSheet, Text, View, TouchableOpacity, AsyncStorage} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, AsyncStorage, ScrollView} from 'react-native';
 import { Button, Provider, Icon, Toast } from '@ant-design/react-native';
 import {activeBtnDark, createUser, btnDark} from "../../styles/common";
 import {randomsort, remove} from '../../utils/index.js'
@@ -40,49 +40,55 @@ class BackupMnemonics extends Component {
     const {home} = model;
     const { copyM, mnemonics, mnemonic, NextText, haveMnemonic } = home;
     const next = () => {
-      if (NextText !== '下一步') {
-        if (mnemonics.length === mnemonic.split(" ").length) {
-          //  检查助记词的顺序是否正确
-          if (mnemonics.join(' ') === mnemonic) {
-            AsyncStorage.setItem('haveMnemonic', 'yes');
-            navigation.navigate(haveMnemonic ? 'SetIndex' : 'AuthLoading');
-            dispatch({
-              type: 'home/updateState',
-              payload: {
-                mnemonics: mnemonic.split(" "),
-                mnemonic:mnemonic,
-                copyM: [],
-                NextText: '下一步',
-                haveMnemonic: false
-              }
-            })
-          } else {
-            Toast.fail('助记词顺序错误', 2);
-          }
-        }else {
-          Toast.info('请选填完整的助记词再执行完成步骤', 2);
-        }
-      } else {
         dispatch({
           type: 'home/updateState',
-          payload: {mnemonics: [], copyM: mnemonics.sort(randomsort), NextText: '完成'}
+          payload: {mnemonics: mnemonics.map(x => ''), copyM: mnemonics.sort(randomsort), NextText: '完成'}
         });
         this.props.navigation.setParams({ home: this.props.model.home,
           dispatch: this.props.dispatch,
           copyM: mnemonics.sort(randomsort) });
-      }
     };
     const next1 = () => {
       AsyncStorage.setItem('haveMnemonic', 'yes');
       navigation.navigate(haveMnemonic ? 'SetIndex' : 'AuthLoading');
     };
+    const onMnemomics = () => {
+        //  检查助记词的顺序是否正确
+        if (mnemonics.join(' ') === mnemonic) {
+          AsyncStorage.setItem('haveMnemonic', 'yes');
+          navigation.navigate(haveMnemonic ? 'SetIndex' : 'AuthLoading');
+          dispatch({
+            type: 'home/updateState',
+            payload: {
+              mnemonics: mnemonic.split(" "),
+              mnemonic:mnemonic,
+              copyM: [],
+              NextText: '下一步',
+              haveMnemonic: false
+            }
+          })
+        } else {
+          Toast.fail('助记词顺序错误', 2);
+        }
+    }
     const getText = (val) => {
+      console.log(val, mnemonics)
       let obj = mnemonics;
       if (mnemonics.includes(val)) {
-        obj = remove(val, mnemonics)
+        for(let i = 0; i < mnemonics.length; i++) {
+          if (mnemonics[i] === val) {
+            obj[i] = ''
+          }
+        }
       } else {
-        obj = mnemonics.concat([val])
+        for(let i = 0; i < mnemonics.length; i++) {
+          if (mnemonics[i] === '') {
+            obj[i] = val;
+            break
+          }
+        }
       }
+      obj.filter( u => u === '').length === 0 && onMnemomics()
       dispatch({
         type: 'home/updateState',
         payload: {
@@ -94,53 +100,54 @@ class BackupMnemonics extends Component {
       <Provider>
         <View style={s.container}>
           <View style={s.top}>
-            <Icon name={'form'} color={'#358BFE'} size={36} style={s.icon}/>
-            <Text>请正确抄写并安全备份助记词</Text>
-            <View style={s.textView}>
-              <Text style={s.text}>{mnemonics.join('  ')}</Text>
-            </View>
-            <View style={s.keyWord}>
+            <Text style={s.textTip}>请正确抄写并安全备份助记词</Text>
+              <View style={s.textView}>
+                {
+                  mnemonics.map((u, index) => {
+                    return(
+                      <Text key={index} style={ u === '' ? s.nullText : s.mnText}>{u}</Text>
+                    )
+                  })
+                }
+              </View>
+          </View>
+          {
+            NextText === '下一步' ?  <View style={s.bottom}>
+                <Button style={btnDark} type="primary" onPress={next}
+                        activeStyle={activeBtnDark}>
+                  <Text style={createUser}>{NextText}</Text>
+                </Button>
+              </View> : <View style={s.keyWord}>
               {
                 copyM.map((u, i) => {
                   return(
-                    <TouchableOpacity key={i} activeOpacity={0.8} onPress={() => {getText(u)}}>
-                      <View style={mnemonics.includes(u) ? s.blockSelect : s.block}>
-                        <Text>{u}</Text>
-                      </View>
-                    </TouchableOpacity>
+                    <Text key={i} onPress={() => {getText(u)}} style={mnemonics.includes(u) ? s.blockSelect : s.block}>{u}</Text>
                   )
                 })
               }
             </View>
-          </View>
-          <View style={s.bottom}>
-            <Button style={btnDark} type="primary" onPress={next1}
-              activeStyle={activeBtnDark}>
-               <Text style={createUser}>{NextText}</Text>
-            </Button>
-            <Button style={btnDark} type="primary" onPress={next}
-                    activeStyle={activeBtnDark}>
-              <Text style={createUser}>{NextText}</Text>
-            </Button>
-          </View>
+          }
         </View>
       </Provider>
     )
   }
 }
-const common = {height: 29,borderWidth:0.8, borderRadius: 3, width: 'auto', alignItems:'center',
-  justifyContent: 'center', paddingLeft: 4, paddingRight: 4,  marginRight: 8, marginBottom: 11}
+const common = {width: '28%',height: 36, backgroundColor: '#fff', marginBottom: 13, borderRadius: 16,color: '#1C97E0',
+  textAlign: 'center',lineHeight: 36}
 const s = StyleSheet.create({
-  container: {flex: 1, justifyContent: 'space-between',alignItems: 'center'},
-  icon: {marginTop: 32, marginBottom:19},
-  top: {alignItems: 'center', width: '100%'},
-  textView: {width: '100%', backgroundColor: '#F6F6F6', paddingTop: 24, paddingLeft: 12,paddingBottom: 24,
-  paddingRight: 12, marginTop: 26, minHeight: 88},
+  container: {flex: 1, justifyContent: 'space-between',alignItems: 'center',},
+  textTip: {fontSize: 16, marginBottom: 10},
+  mnText:{width: '30%',height: 40, backgroundColor: '#1C97E0', marginBottom: 10, borderRadius: 20,color: '#fff',
+  textAlign: 'center',lineHeight: 40},
+  nullText: {width: '30%',height: 40, backgroundColor: '#EFEFEF', marginBottom: 10, borderRadius: 20,color: '#fff',
+    textAlign: 'center',lineHeight: 40},
+  top: {alignItems: 'center', width: '100%', marginTop: 20},
+  textView: {width: '96%', marginTop: 10, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around',},
   text: {color: '#333', fontSize: 16},
   bottom: {marginBottom: 64, width: '90%'},
-  keyWord: {width: '100%',flexDirection: 'row',paddingLeft: 25, paddingRight: 17,
-  flexWrap: 'wrap', marginTop: 20},
-  block: Object.assign({}, common, {borderColor: '#358BFE'}),
-  blockSelect: Object.assign({}, common, {borderColor: '#aba6b4', backgroundColor: '#f8f8f8'}),
+  keyWord: {width: '100%', marginTop: 10, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around',
+    backgroundColor: '#EFEFEF', paddingTop: 12, },
+  block: Object.assign(common),
+  blockSelect: Object.assign({}, common, {color: '#A8A8A8'}),
 });
 export default connect(model => ({ model }))(BackupMnemonics)
