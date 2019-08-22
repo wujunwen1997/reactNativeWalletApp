@@ -153,8 +153,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   header: {position: 'absolute', top: 0, left: 0,zIndex: 999,  width: width,
-    paddingTop: StatusBar.currentHeight,
-    height: 80 + StatusBar.currentHeight,flexDirection: 'row', justifyContent: 'space-between',
+    paddingTop: Platform.OS === 'ios' ? 20 : StatusBar.currentHeight,
+    height: Platform.OS === 'ios' ? 100 : 80 + StatusBar.currentHeight,flexDirection: 'row', justifyContent: 'space-between',
     alignItems: 'center',paddingLeft: 20,paddingRight: 20},
   preview: {
     flex: 1,
