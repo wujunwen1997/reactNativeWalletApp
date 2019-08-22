@@ -21,7 +21,7 @@ async function requestReadPermission() {
       PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
       {
         'title': '读写权限',
-        'message': '我们尊重您的个人权限，部分功能的正常使用需要您开启此权限'
+        'message': '链付钱包将访问您的相册，用于保存二维码功能。'
       }
     )
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
