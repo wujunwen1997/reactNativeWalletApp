@@ -193,7 +193,6 @@ const AppSet = createStackNavigator(
 const HomeNavigator = createStackNavigator(
   {
     Home: LoggedHome,
-    PasswordEnter,
     AddIndex: AddWallet,
     ChoiceCurrency,
     WalletConfig,
@@ -212,7 +211,7 @@ const HomeNavigator = createStackNavigator(
   },
   {
     headerMode: 'screen',
-    initialRouteName: 'PasswordEnter',
+    initialRouteName: 'Home',
     defaultNavigationOptions,
     transitionConfig: () => ({
       transitionSpec: {
@@ -236,6 +235,7 @@ const AppNavigation = createSwitchNavigator(
   {
     App: HomeNavigator,
     Auth: AuthStack,
+    PasswordEnter,
     AuthLoading: AuthLoadingScreen
   },
   {
