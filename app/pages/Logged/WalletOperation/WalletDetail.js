@@ -1,20 +1,22 @@
 import React, {Component} from 'react'
 import {
-  StyleSheet, Text, View, StatusBar,ActivityIndicator, ScrollView, Dimensions, TouchableOpacity, DeviceEventEmitter, RefreshControl} from 'react-native';
-import { Button, Provider, Tabs } from '@ant-design/react-native';
+  StyleSheet, Text, View, StatusBar, Dimensions, DeviceEventEmitter } from 'react-native';
+import { Button, Provider } from '@ant-design/react-native';
 import HeaderView from "../../../components/headerView/index";
 import Receivables from "./Receivables";
 import { connect } from 'react-redux';
-import {filterLastZore} from '../../../utils/index';
 import Ficon from '../../../assets/Icomoon';
 import {activeStyle} from "../../../styles/common";
+import TabViews from '../../../components/TabView'
 
 const height = Dimensions.get('window').height;
 const obj = {
   pagenum: 0,
-  pagesize: parseInt((height - 214)/66),
+  pagesize: parseInt((height - 162)/66),
 };
+
 class WalletDetail extends Component {
+
   static navigationOptions = ({navigation}) => {
     return {
       title: navigation.getParam('wallet_name') || '--',
@@ -28,7 +30,6 @@ class WalletDetail extends Component {
     this.refreshData(0)
     this.props.dispatch({
       type: 'home/updateState',
-      payload: {detailLoading: true}
     });
   }
   componentWillUnmount() {
@@ -71,30 +72,31 @@ class WalletDetail extends Component {
     const {home} = model;
     const {detailLoading, detailLoading1, walletDetail, depositArr, withdrawArr, activeTab, coin} = home;
     const {deposit, withdraw} = walletDetail;
+    const transferArr = [{arr: depositArr, til: '转入'}, {arr: withdrawArr, til: '转出'}];
     const goTransfer = () => {
       this.props.navigation.navigate('Transfer');
     };
     const goReceivables = () => {
       this.props.navigation.navigate('Receivables');
     };
-    const changeTab = () => {
+    const changeTab = (i) => {
       dispatch({
         type: 'home/updateState',
-        payload: {activeTab: activeTab === 0 ? 1 : 0, detailLoading: false}
+        payload: {activeTab: i}
       })
-      this.refreshData(activeTab === 0 ? 1 : 0)
+      this.refreshData(i)
     };
     const nextPage = (event) => {
       const contentHeight = event.nativeEvent.contentSize.height;
       const scrollViewHeight = event.nativeEvent.layoutMeasurement.height;
       const scrollOffset = event.nativeEvent.contentOffset.y;
-      const isEndReached = scrollOffset + scrollViewHeight >= contentHeight; // 是否滑动到底部
+      const isEndReached = scrollOffset + scrollViewHeight + 1 >= contentHeight; // 是否滑动到底部
       const isContentFillPage = contentHeight >= scrollViewHeight; // 内容高度是否大于列表高度
       if (isContentFillPage && isEndReached) {
         if (!detailLoading) {
           const obj = {
             pagenum: activeTab ? withdraw.pagenum + 1 : deposit.pagenum + 1,
-            pagesize: parseInt((height - 214)/66),
+            pagesize: parseInt((height - 162)/66),
           };
           activeTab ? this.onNextPage({withdraw: obj, deposit}, false) : this.onNextPage({deposit: obj, withdraw}, false)
         }
@@ -118,52 +120,8 @@ class WalletDetail extends Component {
             <Text style={s.block}>{coin.availableAmount} {coin.coinname}</Text>
           </View>
           <View style={s.fullList}>
-            <Tabs tabs={[{ title: '转入', }, { title: '转出', }]} onChange={changeTab}
-                  page={activeTab} tabBarPosition="top" tabBarUnderlineStyle={{marginTop: 5}}
-                  tabBarActiveTextColor={'#358BFE'} tabBarInactiveTextColor={'#333'}
-                  tabBarTextStyle={{fontSize: 14}}>
-              {
-                [depositArr, withdrawArr].map((k,i) => {
-                  if (detailLoading) {
-                    <ActivityIndicator size="small" color="#efefef" />
-                  }
-                  return (
-                    <ScrollView key={i} showsVerticalScrollIndicator={false} onScrollEndDrag={nextPage} refreshControl={
-                      <RefreshControl
-                        title={'正在刷新...'} refreshing={detailLoading1}
-                        colors={['#d1ced1',"#d1ced1"]}
-                        onRefresh={() => {
-                          this.refreshData(activeTab);
-                        }}
-                      />
-                    }>
-                      {k.map((u, i) => {
-                        return (
-                          <TouchableOpacity key={i} activeOpacity={0.8} onPress={() => {goDetail(u, activeTab)}}>
-                            <View style={s.listItem}>
-                              <View style={s.listItemLeft}>
-                                <Ficon name={ activeTab ? (u.hash || u.txHash) ? 'fasong' : 'daiqianming' : 'jieshou'} color={'#358BFE'} size={21}/>
-                                <Text style={s.typeText}>
-                                  {(u.hash || u.txHash) ? (u.hash || u.txHash).substr(0,8)+ '...' +(u.hash || u.txHash).substring((u.hash || u.txHash).length - 8) : '未完成签名'}
-                                </Text>
-                              </View>
-                              <View style={s.listItemRight}>
-                                {
-                                  u.amount && <Text style={s.num}>{filterLastZore(u.amount).substr(0, 10)}{filterLastZore(u.amount).length>10 && '...'}</Text>
-                                }
-                                {
-                                  (u.created || u.createTime) && <Text style={s.date}>{u.created || u.createTime}</Text>
-                                }
-                              </View>
-                            </View>
-                          </TouchableOpacity>
-                        );
-                      })}
-                    </ScrollView>
-                  )
-                })
-              }
-            </Tabs>
+            <TabViews detailLoading1={detailLoading1} changeTab={changeTab} detailLoading={detailLoading}
+                      transferArr={transferArr} refreshData={this.refreshData} activeTab={activeTab} nextPage={nextPage} goDetail={goDetail}/>
           </View>
           <View style={s.btnView}>
             <Button type="primary" style={s.btn} onPress={goReceivables} activeStyle={activeStyle}>
@@ -180,6 +138,7 @@ class WalletDetail extends Component {
   }
 }
 const s = StyleSheet.create({
+  scene: {flex: 1,},
   container: {flex: 1, justifyContent: 'flex-start', alignItems: 'center',},
   top: {height: 80, width: '100%',backgroundColor: '#1C97E0',alignItems: 'center'},
   block: {color: '#fff',fontSize: 22,marginTop: 3},
@@ -187,7 +146,7 @@ const s = StyleSheet.create({
   justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'},
   listItemLeft: {flexDirection: 'row',},
   typeText: {color: '#666666', marginLeft: 12, marginTop: 2},
-  fullList: { marginTop: 6, width: '100%', height: height - 214},
+  fullList: { width: '100%', height: height - 162, },
   listItemRight: {justifyContent: 'flex-start', flex: 1, },
   num: {fontSize:16,color: '#666',marginBottom:14,textAlign: 'right', zIndex: 999999999,},
   date: {fontSize: 12, color: '#999',textAlign: 'right'},

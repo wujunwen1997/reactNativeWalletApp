@@ -42,7 +42,7 @@ const defaultNavigationOptions= {
     color: '#FFFFFF',
     textAlign: 'center',
     flex:1,
-    fontSize: 17,
+    fontSize: 18,
     fontWeight: '400'
   },
   headerBackImage:<Image source={require('./assets/images/r6.png')} style={{width: 28, height: 16}}/>,
@@ -103,7 +103,7 @@ const AuthStack = createStackNavigator(
         alignSelf:'center',
         textAlign: 'center',
         flex:1,
-        fontSize: 17
+        fontSize: 18
       },
       headerBackImage:<Image source={require('./assets/images/r4.png')} style={{width: 28, height: 16}}/>,
       headerTitleContainerStyle,

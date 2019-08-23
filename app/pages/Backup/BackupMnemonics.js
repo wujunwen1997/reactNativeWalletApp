@@ -88,7 +88,7 @@ class BackupMnemonics extends Component {
           }
         }
       }
-      obj.filter( u => u === '').length === 0 && onMnemomics()
+      obj.filter( u => u === '').length === 0 && onMnemomics();
       dispatch({
         type: 'home/updateState',
         payload: {

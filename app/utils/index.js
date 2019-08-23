@@ -18,11 +18,7 @@ async function requestReadPermission() {
   try {
     //返回string类型
     const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-      {
-        'title': '读写权限',
-        'message': '链付钱包将访问您的相册，用于保存二维码功能。'
-      }
+      PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
     )
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
       Toast.success("你已获取了读写权限", 2)
@@ -56,8 +52,8 @@ const saveBase64Img = (base64Img) => {
         })
       } catch (e3) {
         // Alert.alert(JSON.stringify(e3))
-        console.log('catch',e3);
-        Toast.fail('保存失败', 2)
+        Toast.fail('保存失败, 未获得权限。', 1)
+        requestReadPermission()
       }
     });
   }
