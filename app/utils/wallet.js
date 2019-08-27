@@ -1,7 +1,7 @@
 import WalletModule from './rnwallet';
 
 let module_inited = false;
-console.log('WalletModule starting')
+console.log('WalletModule starting');
 
 const test_server = 'https://customer-test.chainspay.com/';
 const server = 'https://customer.chainspay.com/';
