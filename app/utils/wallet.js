@@ -1,13 +1,13 @@
 import WalletModule from './rnwallet';
 
 let module_inited = false;
-console.log('WalletModule starting');
+console.log('WalletModule starting')
 
 const test_server = 'https://customer-test.chainspay.com/';
 const server = 'https://customer.chainspay.com/';
 const local_test = 'http://192.168.0.57:8081/';
 
-WalletModule.init_library(test_server, () => {
+WalletModule.init_library(server, () => {
     console.log('WalletModule inited');
     module_inited = true;
 });
@@ -144,15 +144,28 @@ export default {
     async get_withdraw_history({ wallet, coinid, pagenum, pagesize }) {
         return await rn_invoke_cpp_method('get_withdraw_history', { keyid: wallet.keyid, coinid: coinid, pagenum: pagenum, pagesize: pagesize });
     },
-
     /*
+     返回值为 {
+          success : true
+          tx : [ 数组]
+     }
+    */
+    async get_pledge_loan_history({ wallet, coinid, pagenum, pagesize }) {
+        return await rn_invoke_cpp_method('get_pledge_loan_history', { keyid: wallet.keyid, coinid: coinid, pagenum: pagenum, pagesize: pagesize });
+    },
+    /* 
     return { success: true }
     feemode = "FAST"
-*/
+    */
     async create_transfer({ wallet, coinId, address, amount, feemode }) {
         return await rn_invoke_cpp_method('create_transfer', { keyid: wallet.keyid, coinId: coinId, address: address, amount: amount, feemode: feemode });
     },
-
+    async create_pledge_loan({ wallet, coinId, address, amount, feemode }) {
+        return await rn_invoke_cpp_method('create_pledge_loan', { keyid: wallet.keyid, coinId: coinId, address: address, amount: amount, feemode: feemode });
+    },
+    async revoke_pledge_loan(withdraw_history_item) {
+        return await rn_invoke_cpp_method('revoke_pledge_loan', { withdraw_history_item: withdraw_history_item });
+    },
     /*
         create_transfer 会自动签名, sign_transfer 是在未签名列表里
     */
@@ -160,7 +173,6 @@ export default {
 
         return await rn_invoke_cpp_method('sign_transfer', { keyid: wallet.keyid, withdraw_history_item: withdraw_history_item });
     },
-
     async cancel_transfer(withdraw_history_item) {
         return await rn_invoke_cpp_method('cancel_transfer', { withdraw_history_item: withdraw_history_item });
     }
