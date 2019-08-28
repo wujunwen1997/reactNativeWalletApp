@@ -26,7 +26,7 @@ public class WalletModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void init_library(String gateway_base_api_url, Callback successCallback) {
-        rnbridgewallet.init_library(getReactApplicationContext().getDataDir().getPath(), gateway_base_api_url);
+        rnbridgewallet.init_library(getReactApplicationContext().getFilesDir().getPath(), gateway_base_api_url);
         successCallback.invoke();
     }
 
