@@ -68,7 +68,7 @@ class SetIndex extends Component {
       Keyboard.dismiss();
       this.pinInput.current.shake()
         .then(() => {
-          Toast.fail('密码错误，请重新输入', 1)
+          Toast.fail('密码错误，请重新输入', 1, '', false)
         });
     }
   })

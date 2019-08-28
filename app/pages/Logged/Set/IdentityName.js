@@ -39,16 +39,16 @@ class IdentityName extends Component {
     const goOn = () => {
       Keyboard.dismiss();
       if (setNickName === '') {
-        Toast.fail('请输入身份名', 2);
+        Toast.fail('请输入身份名', 1, '', false);
       }
       this.setState({loading: true, disabled: true});
       Wallet.rename_identity(setNickName).then(res => {
         this.setState({loading: false, disabled: false});
         if (!res.success) {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
-          Toast.fail('修改失败' + msg, 2)
+          Toast.fail('修改失败' + msg, 1, '', false)
         } else {
-          Toast.success('修改成功', 2);
+          Toast.success('修改成功', 1, '', false);
           dispatch({
             type: 'home/updateState',
             payload: {

@@ -42,9 +42,9 @@ class WalletDetail extends Component {
         });
         if (!res.success) {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
-          Toast.fail('取消失败' + msg, 2)
+          Toast.fail('取消失败' + msg, 1, '', false)
         } else {
-          Toast.success('取消成功', 2);
+          Toast.success('取消成功', 1, '', false);
           DeviceEventEmitter.emit('new');
           navigation.goBack()
         }
@@ -60,9 +60,9 @@ class WalletDetail extends Component {
         });
         if (!res.success) {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
-          Toast.fail('签名失败' + msg, 2)
+          Toast.fail('签名失败' + msg, 1, '', false)
         } else {
-          Toast.success('签名成功', 2);
+          Toast.success('签名成功', 1, '', false);
           DeviceEventEmitter.emit('new');
           navigation.goBack()
         }
@@ -70,11 +70,11 @@ class WalletDetail extends Component {
     };
     const copyAddress = () => {
       Clipboard.setString(data.toAddress);
-      Toast.info('地址已复制', 1)
+      Toast.info('地址已复制', 1, '', false)
     };
     const copyTxHash = () => {
       Clipboard.setString(data.txHash || data.hash);
-      Toast.info('交易Hash已复制', 1)
+      Toast.info('交易Hash已复制', 1, '', false)
     };
     const getHtmlResove = () => {
       if (!isSend) {

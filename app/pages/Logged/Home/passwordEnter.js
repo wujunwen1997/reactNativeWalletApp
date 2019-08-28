@@ -75,7 +75,7 @@ class passwordEnter extends Component{
           }
         })
       } else {
-        Toast.fail('密码错误，请重新输入', 1);
+        Toast.fail('密码错误，请重新输入', 1, '', false);
       }
     })
   }
@@ -91,12 +91,12 @@ class passwordEnter extends Component{
       try {
         const arr = Object.values(await PermissionsAndroid.requestMultiple(permissions));
         if (arr.length > 0) {
-          arr.includes('denied') && Toast.info('请允许所有授权', 2);
-          arr.includes('never_ask_again') && Toast.info('您选择了never_ask_again, 请在-设置-中设置相机和读写文件权限', 3);
+          arr.includes('denied') && Toast.info('请允许所有授权', 1, '', false);
+          arr.includes('never_ask_again') && Toast.info('您选择了never_ask_again, 请在-设置-中设置相机和读写文件权限', 1);
           dispatch({type: 'home/getPERMISSIONS', payload: ''})
         }
       } catch (err) {
-        Toast.fail('授权发生错误，请重启', 2)
+        Toast.fail('授权发生错误，请重启', 1, '', false)
       }
     }
     return (

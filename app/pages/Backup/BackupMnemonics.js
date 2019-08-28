@@ -68,7 +68,7 @@ class BackupMnemonics extends Component {
             }
           })
         } else {
-          Toast.fail('助记词顺序错误', 2);
+          Toast.fail('助记词顺序错误', 1, '', false);
         }
     }
     const getText = (val) => {
@@ -113,7 +113,7 @@ class BackupMnemonics extends Component {
           </View>
           {
             NextText === '下一步' ?  <View style={s.bottom}>
-                <Button style={btnDark} type="primary" onPress={next}
+                <Button style={btnDark} type="primary" onPress={next1}
                         activeStyle={activeBtnDark}>
                   <Text style={createUser}>{NextText}</Text>
                 </Button>

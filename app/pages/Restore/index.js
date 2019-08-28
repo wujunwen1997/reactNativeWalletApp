@@ -97,12 +97,12 @@ class Restore extends React.Component {
               }
             })
             AsyncStorage.setItem('haveMnemonic', 'yes');
-            Toast.success('身份恢复成功', 2, () => {
+            Toast.success('身份恢复成功', 1, () => {
               navigation.navigate('Home')
-            });
+            }, false);
           } else {
             const msg = u.errmsg ? `, ${u.errmsg}` : '';
-            Toast.fail('恢复失败' + msg, 2)
+            Toast.fail('恢复失败' + msg, 1, '', false)
           }
         })
       }

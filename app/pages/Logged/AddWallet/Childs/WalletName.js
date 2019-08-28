@@ -38,7 +38,7 @@ export class WalletConfig extends Component {
         if (!res.success) {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
           // alert('wallet_name')
-          Toast.fail('获取多重签名status失败' + msg, 2)
+          Toast.fail('获取多重签名status失败' + msg, 1, '', false)
         } else {
           if (res.status.length === parseInt(res.number_of_multisign)) {
             clearInterval(this.state.timer);
@@ -74,7 +74,7 @@ export class WalletConfig extends Component {
     const {join_barcode, number_of_multisign, status} = home.MultiSignatureStatus;
     const copyAddress = () => {
       Clipboard.setString(join_barcode);
-      Toast.info('地址已复制', 2)
+      Toast.info('地址已复制', 1, '', false)
     };
     const getDataURL = () => {
       this.svg.toDataURL(callback);
@@ -94,7 +94,7 @@ export class WalletConfig extends Component {
           navigation.navigate('Home');
         } else {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
-          Toast.fail('取消失败' + msg, 2)
+          Toast.fail('取消失败' + msg, 1, '', false)
         }
       })
     };

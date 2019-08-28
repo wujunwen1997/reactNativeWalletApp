@@ -20,7 +20,7 @@ class MultiSignature extends Component {
     const type = navigation.getParam('type');
     if (type !== 0) {
       if (type === '' || !type){
-        Toast.fail('钱包类型为空，请返回选择货币页面', 2);
+        Toast.fail('钱包类型为空，请返回选择货币页面', 1, '', false);
       }
     }
     dispatch({
@@ -59,16 +59,16 @@ class MultiSignature extends Component {
       Keyboard.dismiss();
       if (cointype !== 0) {
         if (!cointype || cointype === '') {
-          Toast.fail('钱包类型为空，请返回选择货币页面', 2);
+          Toast.fail('钱包类型为空，请返回选择货币页面', 1, '', false);
           return;
         }
       }
       if (!wallet_name) {
-        Toast.info('钱包名不能为空!', 2);
+        Toast.info('钱包名不能为空!', 1, '', false);
         return;
       }
       if (wallet_name.length > 20) {
-        Toast.info('钱包名长度小于20', 2);
+        Toast.info('钱包名长度小于20', 1, '', false);
         return;
       }
       this.setState({loading: true, disabled: true});
@@ -85,7 +85,7 @@ class MultiSignature extends Component {
           });
         } else {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
-          Toast.fail('创建失败' + msg, 2)
+          Toast.fail('创建失败' + msg, 1, '', false)
         }
       })
     };

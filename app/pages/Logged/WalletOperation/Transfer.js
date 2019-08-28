@@ -26,7 +26,7 @@ const seasons = [
 class Transfer extends Component {
   static navigationOptions = ({navigation}) => {
     return {
-      title: '转账',
+      title: navigation.getParam('point') ? '指向' : '转账',
       headerLeft: <BackImage event={() => {navigation.goBack()}}/>,
       headerRight: <HeaderView color="#000" size={19} icon="saomiao" event={() => {navigation.navigate('Scanner', {back: 'Transfer', key: 'address'})}}/>,
     }
@@ -83,11 +83,11 @@ class Transfer extends Component {
     };
     const next = () => {
       if (isNaN(amount)  || amount === '') {
-        Toast.fail('金额必须为数字', 2);
+        Toast.fail('金额必须为数字', 1, '', false);
         return
       }
       if (address === '') {
-        Toast.fail('请输入地址', 2);
+        Toast.fail('请输入地址', 1, '', false);
         return;
       }
       this.setState({ visible: true });
@@ -102,9 +102,9 @@ class Transfer extends Component {
         });
         if (!res.success) {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
-          Toast.fail('发送失败' + msg, 3)
+          Toast.fail('发送失败' + msg, 1, '', false)
         } else {
-          Toast.success('发送成功', 2);
+          Toast.success('发送成功', 1, '', false);
           DeviceEventEmitter.emit('new');
           navigation.goBack()
         }
@@ -122,7 +122,7 @@ class Transfer extends Component {
           Keyboard.dismiss();
           this.pinInput.current.shake()
             .then(() => {
-              Toast.fail('密码错误，请重新输入', 1)
+              Toast.fail('密码错误，请重新输入', 1, '', false)
             });
         }
       })
@@ -165,7 +165,7 @@ class Transfer extends Component {
             onChangeText={onChangeAmount}
           />
           <View style={s.coin}>
-            <Text style={s.coinName}>收款地址</Text>
+            <Text style={s.coinName}>{navigation.getParam('point') ? '指向' : '收款'}地址</Text>
           </View>
           <TextInput
             style={s.input}

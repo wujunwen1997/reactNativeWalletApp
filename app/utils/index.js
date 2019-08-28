@@ -21,21 +21,21 @@ async function requestReadPermission() {
       PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
     )
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      Toast.success("你已获取了读写权限", 2)
+      Toast.success("你已获取了读写权限", 1, '', false)
     } else {
-      Toast.fail("获取读写权限失败", 2)
+      Toast.fail("获取读写权限失败", 1, '', false)
     }
   } catch (err) {
-    Toast.fail(err.toString(), 2)
+    Toast.fail(err.toString(), 1, '', false)
   }
 }
 const saveBase64Img = (base64Img) => {
   if (Platform.OS === 'ios') {
     CameraRoll.saveToCameraRoll(base64Img)
       .then((res) => {
-        Toast.success('保存成功', res);
+        Toast.success('保存成功', 1, '', false);
       }).catch(() => {
-      Toast.fail('保存失败', 2);
+      Toast.fail('保存失败', 1, '', false);
     });
   } else {
     const dirs = RNFS.ExternalDirectoryPath;
@@ -46,13 +46,13 @@ const saveBase64Img = (base64Img) => {
     RNFetchBlob.fs.writeFile(downloadDest, imageData, 'base64').then((rst) => {
       try {
         CameraRoll.saveToCameraRoll(downloadDest).then((e1) => {
-          Toast.success('保存成功,请查看相册-最新', 2)
+          Toast.success('保存成功,请查看相册-最新', 1, '', false)
         }).catch((e2) => {
           requestReadPermission()
         })
       } catch (e3) {
         // Alert.alert(JSON.stringify(e3))
-        Toast.fail('保存失败, 未获得权限。', 1)
+        Toast.fail('保存失败, 未获得权限。', 1, '', false)
         requestReadPermission()
       }
     });

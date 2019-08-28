@@ -50,7 +50,7 @@ class Wallet extends Component {
     };
     const copyAddress = () => {
       Clipboard.setString(address);
-      Toast.info('地址已复制', 2)
+      Toast.info('地址已复制', 1, '', false)
     };
     return (
       <Provider>

@@ -93,7 +93,7 @@ class ScannerScreen extends React.Component {
     const choosePic = () => {
       ImagePicker.launchImageLibrary(options, (response) => {
         if (response.error) {
-          Toast.info("ImagePicker发生错误：" + response.error, 2);
+          Toast.info("ImagePicker发生错误：" + response.error, 1, '', false);
           return;
         }
         readerQR(response.path).then((data)=>{

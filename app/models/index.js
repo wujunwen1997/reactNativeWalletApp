@@ -129,7 +129,7 @@ export default {
       let arr = [];
       if (!Array.isArray(res.wallets)) {
         const msg = res.errmsg ? `, ${res.errmsg}` : '';
-        Toast.fail('查询列表失败' + msg, 2)
+        Toast.fail('查询列表失败' + msg, 1, '', false)
       }
       for(let i = 0; i < res.wallets.length; i++) {
         coinTypes.forEach(t => {
@@ -195,8 +195,8 @@ export default {
       const res = yield call(Wallet.get_deposit_history, {coinid, wallet, ...obj.deposit});
       if (res.success) {
         if (res.tx.length === 0) {
-          obj.deposit.pagenum === 0 && activeTab === 0 && Toast.info('转入无数据', 1);
-          copyDepositArr.length > 0 && Toast.info('您已经刷到底了...');
+          obj.deposit.pagenum === 0 && activeTab === 0 && Toast.info('转入无数据', 1, '', false);
+          copyDepositArr.length > 0 && Toast.info('您已经刷到底了...', 1, '', false);
         } else {
           if (delSame(copyDepositArr, res.tx)) {
             yield put({
@@ -208,13 +208,13 @@ export default {
           }
         }
       } else {
-        Toast.fail('请求转入错误', 2)
+        Toast.fail('请求转入错误', 1, '', false)
       }
       const resW = yield call(Wallet.get_withdraw_history, {coinid, wallet, ...obj.withdraw});
       if (resW.success) {
         if (resW.tx.length === 0) {
           if (obj.withdraw.pagenum === 0 && activeTab === 1) {
-            Toast.info('转出无数据', 1);
+            Toast.info('转出无数据', 1, '', false);
             yield put({
               type: 'updateState',
               payload: {
@@ -222,7 +222,7 @@ export default {
               }
             })
           }
-          copyWithdrawArr.length > 0 && Toast.info('您已经刷到底了...', 2);
+          copyWithdrawArr.length > 0 && Toast.info('您已经刷到底了...', 1, '', false);
         } else {
           if (delSame(copyWithdrawArr, resW.tx)) {
             yield put({
@@ -234,7 +234,7 @@ export default {
           }
         }
       } else {
-        Toast.fail('请求转出错误', 2)
+        Toast.fail('请求转出错误', 1, '', false)
       }
       yield put({
         type: 'updateState',
@@ -249,7 +249,7 @@ export default {
       if (!res.success) {
         const msg = res.errmsg ? `, ${res.errmsg}` : '';
         // alert('getMultiSignatureStatus')
-        Toast.fail('获取多重签名status失败' + msg, 2)
+        Toast.fail('获取多重签名status失败' + msg, 1, '', false)
         return
       }
       yield put({
@@ -271,7 +271,7 @@ export default {
       if (!res.success) {
         const msg = res.errmsg ? `, ${res.errmsg}` : '';
         // alert('getMultiSignatureStatus2');
-        Toast.fail('获取多重签名status失败' + msg, 2);
+        Toast.fail('获取多重签名status失败' + msg, 1, '', false);
         return
       }
       yield put({
@@ -299,7 +299,7 @@ export default {
         })
       } else {
         const msg = res.errmsg ? `, ${res.errmsg}` : '';
-        Toast.fail('获取货币失败' + msg, 2)
+        Toast.fail('获取货币失败' + msg, 1, '', false)
       }
     },
     * getWithdrawDetail ({payload}, {call, put, select}) {
@@ -307,7 +307,7 @@ export default {
       const res = yield call(Wallet.get_withdraw_detail, payload);
       if (!res.success) {
         const msg = res.errmsg ? `, ${res.errmsg}` : '';
-        Toast.fail('获取交易详情失败' + msg, 2)
+        Toast.fail('获取交易详情失败' + msg, 1, '', false)
       } else {
         yield put({
           type: 'updateState',
@@ -331,7 +331,7 @@ export default {
         })
       } else {
         const msg = res.errmsg ? `, ${res.errmsg}` : '';
-        Toast.fail('钱包数据请求失败' + msg, 2)
+        Toast.fail('钱包数据请求失败' + msg, 1, '', false)
       }
     },
     * getThisWalletBlance({payload}, {call, put, select}) {

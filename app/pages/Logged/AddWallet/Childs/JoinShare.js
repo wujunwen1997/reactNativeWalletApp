@@ -35,7 +35,7 @@ class JoinShare extends Component {
     const createMultiSignature = () => {
       Keyboard.dismiss();
       if (!barcode) {
-        Toast.info('请输入邀请码', 2);
+        Toast.info('请输入邀请码', 1, '', false);
         return
       }
       this.setState({loading: true, disabled: true});
@@ -50,7 +50,7 @@ class JoinShare extends Component {
             });
         } else {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
-          Toast.fail('加入失败' + msg, 2)
+          Toast.fail('加入失败' + msg, 1, '', false)
         }
       })
     }

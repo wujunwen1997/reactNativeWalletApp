@@ -43,12 +43,11 @@ class Establish extends Component {
       this.setState({ checkUsername: !checkUsername(val) })
     };
     const changePassword = (val) => {
-      if (checkPassword(val)) {
+      checkPassword(val)
         dispatch({
           type: 'home/updateState',
           payload: { createUserForm: Object.assign({}, home.createUserForm, { password: val }) }
         })
-      }
       if (home.createUserForm.passwordTwo && home.createUserForm.passwordTwo !== '') {
         this.setState({ checkPasswordTwo: val !== home.createUserForm.passwordTwo })
       }
@@ -69,14 +68,14 @@ class Establish extends Component {
       changePassword(password || '');
       changePasswordTwo(passwordTwo || '');
       if (checkUsername(username) && checkPassword(password) && passwordTwo === password) {
-        this.setState({loading: true, disabled: true})
+        this.setState({loading: true, disabled: true});
         home.Wallet.createIdentity({ username, password }).then(res => {
           this.setState({loading: false, disabled: false});
           if (!res.success) {
             const msg = res.errmsg ? `, ${res.errmsg}` : '';
-            Toast.fail('创建失败' + msg, 2)
+            Toast.fail('创建失败' + msg, 1, '', false)
           } else {
-            Toast.success('创建成功! 正在跳转,请稍等...', 2);
+            Toast.success('创建成功! 正在跳转,请稍等...', 1, '', false);
             dispatch({
               type: 'home/updateState',
               payload: {
@@ -105,11 +104,11 @@ class Establish extends Component {
             style={Object.assign({}, inputs)} selectionColor={'#9d9d9d'} />
           {this.state.checkUsername &&
             <View style={tipView}><Text style={toast}>身份名格式有误，不能为空且小于30个字符</Text></View>}
-          <TextInput placeholder='密码(6位数字)' textContentType='password' style={inputs}
+          <TextInput placeholder='密码(6位数字)' textContentType='password' style={inputs} keyboardType={'numeric'}
             onChangeText={changePassword} selectionColor={'#9d9d9d'} secureTextEntry={true}/>
           {this.state.checkPassword &&
             <View style={tipView}><Text style={toast}>密码格式有误，请输入6位数字</Text></View>}
-          <TextInput placeholder='重复输入密码' textContentType='password'
+          <TextInput placeholder='重复输入密码' textContentType='password' keyboardType={'numeric'}
             style={inputs} selectionColor={'#9d9d9d'} secureTextEntry={true}
             onChangeText={changePasswordTwo} />
           {this.state.checkPasswordTwo &&

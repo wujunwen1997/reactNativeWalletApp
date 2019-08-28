@@ -21,7 +21,7 @@ class Receivables extends Component {
     const {coinname} = coin;
     const copyAddress = () => {
       Clipboard.setString(wallet.address);
-      Toast.info('地址已复制', 2)
+      Toast.info('地址已复制', 1, '', false)
     }
     const getDataURL = () => {
       this.img.toDataURL(callback);

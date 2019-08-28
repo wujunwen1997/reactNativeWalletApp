@@ -72,12 +72,15 @@ class WalletDetail extends Component {
     const {home} = model;
     const {detailLoading, detailLoading1, walletDetail, depositArr, withdrawArr, activeTab, coin} = home;
     const {deposit, withdraw} = walletDetail;
-    const transferArr = [{arr: depositArr, til: '转入'}, {arr: withdrawArr, til: '转出'}];
+    const transferArr = [{arr: depositArr, til: '转入'}, {arr: withdrawArr, til: '转出'}, {arr: withdrawArr, til: '指向'}];
     const goTransfer = () => {
-      this.props.navigation.navigate('Transfer');
+      navigation.navigate('Transfer');
+    };
+    const goPoint = () => {
+      navigation.navigate('Transfer', {point: true});
     };
     const goReceivables = () => {
-      this.props.navigation.navigate('Receivables');
+      navigation.navigate('Receivables');
     };
     const changeTab = (i) => {
       dispatch({
@@ -131,6 +134,10 @@ class WalletDetail extends Component {
             <Button type="primary" style={s.btn1} onPress={goTransfer} activeStyle={activeStyle}>
               <Ficon name={'zhuanzhang'} color={'#358BFE'} size={17}/> <Text style={s.btnText}>转账</Text>
             </Button>
+            <Text style={s.keep}>|</Text>
+            <Button type="primary" style={s.btn1} onPress={goPoint} activeStyle={activeStyle}>
+              <Ficon name={'zhuanzhang'} color={'#358BFE'} size={17}/> <Text style={s.btnText}>指向</Text>
+            </Button>
           </View>
         </View>
       </Provider>
@@ -152,8 +159,8 @@ const s = StyleSheet.create({
   date: {fontSize: 12, color: '#999',textAlign: 'right'},
   btnView: { position: 'absolute', bottom:-1, left: 0,width: '100%',justifyContent:'space-between',backgroundColor: '#F5F5F5',
     height: 50, flexDirection: 'row'},
-  btn: {width: '49%', borderRadius: 0,height: 50, borderWidth: 0,backgroundColor: '#F5F5F5',},
-  btn1: {width: '49%', borderRadius: 0,height: 50, borderWidth: 0,backgroundColor: '#F5F5F5',},
+  btn: {width: '32%', borderRadius: 0,height: 50, borderWidth: 0,backgroundColor: '#F5F5F5',},
+  btn1: {width: '32%', borderRadius: 0,height: 50, borderWidth: 0,backgroundColor: '#F5F5F5',},
   nullData: {textAlign: 'center', marginTop: 20},
   btnText: {color: '#358BFE', fontSize: 16},
   keep:{ textAlign: 'center', lineHeight: 50, fontSize: 16,color: '#81aefd',}
