@@ -45,6 +45,7 @@ export default {
     KEY_TYPE_ETH: 0x000003c,
     KEY_TYPE_BCH: 0x0000091,
     KEY_TYPE_EOS: 0x00000c2,
+    KEY_TYPE_BHD: 0x050194a,
     KEY_TYPE_RCOIN: 0x5f566ff,
     KEY_TYPE_ECOIN: 0x5f588ff,
 
