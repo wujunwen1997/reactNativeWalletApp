@@ -164,8 +164,8 @@ export default {
     async create_pledge_loan({ wallet, coinId, address, amount, feemode }) {
         return await rn_invoke_cpp_method('create_pledge_loan', { keyid: wallet.keyid, coinId: coinId, address: address, amount: amount, feemode: feemode });
     },
-    async revoke_pledge_loan(withdraw_history_item) {
-        return await rn_invoke_cpp_method('revoke_pledge_loan', { withdraw_history_item: withdraw_history_item });
+    async revoke_pledge_loan({ wallet, withdraw_history_item} ) {
+        return await rn_invoke_cpp_method('revoke_pledge_loan', { keyid: wallet.keyid, withdraw_history_item: withdraw_history_item });
     },
     /*
         create_transfer 会自动签名, sign_transfer 是在未签名列表里
