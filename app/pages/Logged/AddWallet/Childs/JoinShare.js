@@ -46,10 +46,13 @@ class JoinShare extends Component {
             dispatch({
               type: 'home/getMultiSignatureStatus2',
               payload: {
-                wallet: res, navigation,
-                coinName
+                wallet: res, navigation
               }
             });
+          dispatch({
+            type: 'home/updateState',
+            payload: {coinName}
+          });
         } else {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
           Toast.fail('加入失败' + msg, 1, '', false)
