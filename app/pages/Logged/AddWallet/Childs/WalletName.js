@@ -42,6 +42,7 @@ export class WalletConfig extends Component {
         } else {
           if (res.status.length === parseInt(res.number_of_multisign)) {
             clearInterval(this.state.timer);
+            const coinName = model.home.coinTypes.find(u => (u.type === res.cointype)).symbol;
             dispatch({
               type: 'home/updateState',
               payload: {
@@ -51,7 +52,7 @@ export class WalletConfig extends Component {
                   required_sign: res.required_sign,
                   status: res.status
                 },
-                walletItem: res
+                walletItem: res, coinName
               }
             });
             dispatch({
