@@ -11,6 +11,23 @@ class Tabs extends React.Component {
     const changeTabKey = (val) => {
       changeTab(val.i)
     };
+    const FiconName = (u) => {
+      if (activeTab === 0) {
+        return 'jieshou'
+      } else if (activeTab === 1) {
+        return (u.hash || u.txHash) ? 'fasong' : 'daiqianming'
+      } else if (activeTab === 2) {
+        if (u.hash || u.txHash) {
+          if (u.type === 'PLEDGE') {
+            return 'zhixiang'
+          } else if(u.type === 'WITHDRAW_PLEDGE') {
+            return 'chexiaozhixiang'
+          }
+        } else {
+          return 'daiqianming'
+        }
+      }
+    };
     return (
       <ScrollableTabView
         page={activeTab}
@@ -23,7 +40,7 @@ class Tabs extends React.Component {
         {
           transferArr.map((k,i) => {
             return(
-              <View tabLabel={k.til} style={[s.scene, { backgroundColor: '#fff' }]} >
+              <View tabLabel={k.til} style={[s.scene, { backgroundColor: '#fff' }]} key={i}>
                 <ScrollView key={i} showsVerticalScrollIndicator={false} onScrollEndDrag={nextPage} refreshControl={
                   <RefreshControl
                     title={'正在刷新...'}
@@ -39,7 +56,7 @@ class Tabs extends React.Component {
                       <TouchableOpacity key={i} activeOpacity={0.8} onPress={() => {goDetail(u, activeTab)}}>
                         <View style={s.listItem}>
                           <View style={s.listItemLeft}>
-                            <Ficon name={ activeTab ? (u.hash || u.txHash) ? 'fasong' : 'daiqianming' : 'jieshou'} color={'#358BFE'} size={21}/>
+                            <Ficon name={FiconName(u) } color={'#358BFE'} size={21}/>
                             <Text style={s.typeText}>
                               {(u.hash || u.txHash) ? (u.hash || u.txHash).substr(0,8)+ '...' +(u.hash || u.txHash).substring((u.hash || u.txHash).length - 8) : '未完成签名'}
                             </Text>

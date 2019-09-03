@@ -55,11 +55,12 @@ class HomeIndex extends Component {
         }
       })
     };
-    const goWallet = (wallet) => {
+    const goWallet = (wallet, coinName) => {
       dispatch({
         type: 'home/updateState',
         payload: {
-          walletItem:wallet
+          walletItem:wallet,
+          coinName: coinName
         }
       });
       if (wallet.address && wallet.address !== '') {
@@ -94,7 +95,7 @@ class HomeIndex extends Component {
         {
           (u.show ? u.arr : u.arr.slice(0, 2)).map((item,i) => {
             return(
-              <TouchableOpacity onPress={() => goWallet(item)} key={i} style={s.wallet}
+              <TouchableOpacity onPress={() => goWallet(item, u.name)} key={i} style={s.wallet}
                                 activeOpacity={u.arr.length > 2 ? 0.8 : 1}>
                 <View style={s.leftCon}>
                   <Ficon name={'qianbaoming'} style={s.wIcon} size={22} color={'#358BFE'}/>

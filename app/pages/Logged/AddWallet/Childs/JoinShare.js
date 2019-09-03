@@ -40,12 +40,14 @@ class JoinShare extends Component {
       }
       this.setState({loading: true, disabled: true});
       home.Wallet.join_shared_wallet(barcode).then(res => {
+        const coinName = home.coinTypes.find(u => (u.type === res.cointype)).symbol;
         this.setState({loading: false, disabled: false });
         if (res.success) {
             dispatch({
               type: 'home/getMultiSignatureStatus2',
               payload: {
-                wallet: res, navigation
+                wallet: res, navigation,
+                coinName
               }
             });
         } else {

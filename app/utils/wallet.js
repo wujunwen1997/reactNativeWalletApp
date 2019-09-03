@@ -154,7 +154,7 @@ export default {
     async get_pledge_loan_history({ wallet, coinid, pagenum, pagesize }) {
         return await rn_invoke_cpp_method('get_pledge_loan_history', { keyid: wallet.keyid, coinid: coinid, pagenum: pagenum, pagesize: pagesize });
     },
-    /* 
+    /*
     return { success: true }
     feemode = "FAST"
     */

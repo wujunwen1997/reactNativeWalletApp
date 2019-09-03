@@ -85,12 +85,14 @@ export default {
     detailLoading1: false,
     //  钱包的分页
     walletDetail: {
-      deposit: {}, withdraw: {}
+      deposit: {}, withdraw: {}, point: {}
     },
     //  充值
     depositArr: [],
     //  提现
     withdrawArr: [],
+    //  指向
+    pointArr: [],
     activeTab: 0,
     //  多重签名状态
     MultiSignatureStatus: {
@@ -109,6 +111,8 @@ export default {
     transactionData: {},
     //  钱包数据
     walletItem: {},
+    //  打开的币种的区块链名
+    coinName: '',
     getBlance_loading: false,
     coin: {},
     identity: '',
@@ -187,11 +191,10 @@ export default {
           ...loadingObj
         }
       });
-      const {Wallet, depositArr, withdrawArr, activeTab} = yield select(state => state.home);
-      let copyDepositArr = [];
-      let copyWithdrawArr = [];
-      copyDepositArr = isRefresh ? [] : depositArr;
-      copyWithdrawArr = isRefresh ? [] : withdrawArr;
+      const {Wallet, depositArr, withdrawArr, pointArr, activeTab, coinName} = yield select(state => state.home);
+      let copyDepositArr = isRefresh ? [] : depositArr;
+      let copyWithdrawArr = isRefresh ? [] : withdrawArr;
+      let copyPointArr = isRefresh ? [] : pointArr;
       const res = yield call(Wallet.get_deposit_history, {coinid, wallet, ...obj.deposit});
       if (res.success) {
         if (res.tx.length === 0) {
@@ -235,6 +238,34 @@ export default {
         }
       } else {
         Toast.fail('请求转出错误', 1, '', false)
+      }
+      if (coinName === 'BHD') {
+        const resP =  yield call(Wallet.get_pledge_loan_history, {coinid, wallet, ...obj.point});
+        if (resP.success) {
+          if (resP.tx.length === 0) {
+            if (obj.point.pagenum === 0 && activeTab === 2) {
+              Toast.info('指向无数据', 1, '', false);
+              yield put({
+                type: 'updateState',
+                payload: {
+                  pointArr: []
+                }
+              })
+            }
+            copyPointArr.length > 0 && Toast.info('您已经刷到底了...', 1, '', false);
+          } else {
+            if (delSame(copyPointArr, resP.tx)) {
+              yield put({
+                type: 'updateState',
+                payload: {
+                  pointArr: copyPointArr.concat(resP.tx)
+                }
+              })
+            }
+          }
+        } else {
+          Toast.fail('请求指向错误', 1, '', false)
+        }
       }
       yield put({
         type: 'updateState',

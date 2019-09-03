@@ -86,6 +86,12 @@ class Transfer extends Component {
         Toast.fail('金额必须为数字', 1, '', false);
         return
       }
+      if (navigation.getParam('point')) {
+        if (amount < 1) {
+          Toast.fail('金额必须大于1', 1, '', false)
+          return
+        }
+      }
       if (address === '') {
         Toast.fail('请输入地址', 1, '', false);
         return;
@@ -96,16 +102,19 @@ class Transfer extends Component {
       this.setState({
         loading: true, disabled: true
       });
-      Wallet.create_transfer({feemode, address, amount, coinId: coin.coinId, wallet: walletItem}).then(res => {
+      const api = navigation.getParam('point') ? Wallet.create_pledge_loan : Wallet.create_transfer
+      api({feemode, address, amount, coinId: coin.coinId, wallet: walletItem}).then(res => {
         this.setState({
           loading: false, disabled: false
         });
+        const textFail = navigation.getParam('point') ? '指向失败' : '发送失败';
+        const textSuccess = navigation.getParam('point') ? '指向成功' : '发送成功';
         if (!res.success) {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
-          Toast.fail('发送失败' + msg, 1, '', false)
+          Toast.fail(textFail + msg, 2, '', false)
         } else {
-          Toast.success('发送成功', 1, '', false);
-          DeviceEventEmitter.emit('new');
+          Toast.success(textSuccess, 1, '', false);
+          navigation.getParam('point') ? DeviceEventEmitter.emit('newPoint') : DeviceEventEmitter.emit('new');
           navigation.goBack()
         }
       })
@@ -161,7 +170,7 @@ class Transfer extends Component {
           <TextInput
             style={s.input}
             selectionColor={'#9d9d9d'}
-            placeholder="输入金额"
+            placeholder={navigation.getParam('point') ? '请输入金额，最小为1' : "输入金额"}
             onChangeText={onChangeAmount}
           />
           <View style={s.coin}>

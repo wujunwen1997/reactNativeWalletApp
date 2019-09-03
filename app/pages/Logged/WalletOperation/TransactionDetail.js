@@ -14,8 +14,18 @@ import {activeStyle} from "../../../styles/common";
 
 class WalletDetail extends Component {
   static navigationOptions = ({navigation}) => {
+    const getTitle = () => {
+      const num = navigation.getParam('isSend');
+      if (num === 0) {
+        return '接收资金';
+      } else if (num === 1) {
+        return '发送资金';
+      } else if (num === 2) {
+        return '已指向';
+      }
+    }
     return {
-      title: navigation.getParam('isSend') ? '发送资金' : '接收资金',
+      title: getTitle(),
       headerLeft: <BackImage event={() => {navigation.goBack()}}/>,
     }
   };
@@ -44,8 +54,7 @@ class WalletDetail extends Component {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
           Toast.fail('取消失败' + msg, 1, '', false)
         } else {
-          Toast.success('取消成功', 1, '', false);
-          DeviceEventEmitter.emit('new');
+          Toast.success('取消成功', 1, () => { isSend === 2 ? DeviceEventEmitter.emit('newPoint') : DeviceEventEmitter.emit('new');}, false);
           navigation.goBack()
         }
       })
@@ -62,8 +71,7 @@ class WalletDetail extends Component {
           const msg = res.errmsg ? `, ${res.errmsg}` : '';
           Toast.fail('签名失败' + msg, 1, '', false)
         } else {
-          Toast.success('签名成功', 1, '', false);
-          DeviceEventEmitter.emit('new');
+          Toast.success('签名成功', 1, () => {isSend === 2 ? DeviceEventEmitter.emit('newPoint') : DeviceEventEmitter.emit('new');}, false);
           navigation.goBack()
         }
       })
@@ -76,29 +84,63 @@ class WalletDetail extends Component {
       Clipboard.setString(data.txHash || data.hash);
       Toast.info('交易Hash已复制', 1, '', false)
     };
+    const copyclTxHash = () => {
+      Clipboard.setString(data.clTxHash);
+      Toast.info('指向交易已复制', 1, '', false)
+    };
+    const onRevokePoint = () => {
+      this.setState({
+        loading: true, disabled: true
+      });
+      Wallet.revoke_pledge_loan({wallet, withdraw_history_item}).then(res => {
+        this.setState({
+          loading: false, disabled: false
+        });
+        if (!res.success) {
+          const msg = res.errmsg ? `, ${res.errmsg}` : '';
+          Toast.fail('撤销失败' + msg, 1, '', false)
+        } else {
+          Toast.success('撤销成功', 1, () => {DeviceEventEmitter.emit('newPoint');}, false);
+          navigation.goBack()
+        }
+      })
+    };
+    const getTip = () => {
+      let tip = '-';
+      if (isSend === 1) {
+        tip = '已发送'
+      } else if(isSend === 0) {
+        tip = '已接收'
+      } else if (isSend === 2) {
+        tip = '已指向'
+      }
+      return tip;
+    }
     const getHtmlResove = () => {
-      if (!isSend) {
+      if (isSend === 0) {
         return <Text/>
       }
-      return(
-        <Fragment>
-          <View style={s.Cost}>
-            <Text style={s.tip2}>费用</Text>
-            <Text style={s.money}>{data.fee} {data.platformCoin}</Text>
-          </View>
-          <View style={s.send}>
-            <Text style={s.tip2}>发送到</Text>
-            <Text style={s.money} onPress={copyAddress}>{data.toAddress && data.toAddress}</Text>
-          </View>
-        </Fragment>
-      )
+      if (isSend === 1 || isSend === 2) {
+        return(
+          <Fragment>
+            <View style={s.Cost}>
+              <Text style={s.tip2}>费用</Text>
+              <Text style={s.money}>{data.fee} {data.platformCoin}</Text>
+            </View>
+            <View style={s.send}>
+              <Text style={s.tip2}>发送到</Text>
+              <Text style={s.money} onPress={copyAddress}>{data.toAddress && data.toAddress}</Text>
+            </View>
+          </Fragment>
+        )
+      }
     };
     const onlyCanel = () => {
       return(
         <View style={s.btnView}>
           <Button type="primary" style={s.btn2} onPress={onCancel} activeStyle={activeStyle}
                   loading={this.state.loading} disabled={this.state.disabled}>
-            <Text style={s.btnText}>取消发送</Text>
+            <Text style={s.btnText}>{'取消签名'}</Text>
           </Button>
         </View>
       )
@@ -108,16 +150,26 @@ class WalletDetail extends Component {
         <View style={s.btnView}>
           <Button type="primary" style={s.btn} onPress={onCancel} activeStyle={activeStyle}
                   loading={this.state.loading} disabled={this.state.disabled}>
-            <Text style={s.btnText}>取消发送</Text>
+            <Text style={s.btnText}>{'取消签名'}</Text>
           </Button>
           <Text style={s.keep}>|</Text>
           <Button type="primary" style={s.btn1} onPress={onAutograph} activeStyle={activeStyle}
                   loading={this.state.loading1} disabled={this.state.disabled1}>
-            <Text style={s.btnText}>签名发送</Text>
+            <Text style={s.btnText}>{'签名发送'}</Text>
           </Button>
         </View>
       )
     };
+    const RevokePoint = () => {
+      return(
+        <View style={s.btnView}>
+          <Button type="primary" style={s.btn2} onPress={onRevokePoint} activeStyle={activeStyle}
+                  loading={this.state.loading} disabled={this.state.disabled}>
+            <Text style={s.btnText}>{'撤销指向'}</Text>
+          </Button>
+        </View>
+      )
+    }
     const have = () => {
       if (data.sigUserList && data.sigUserList.length === required_sign) {
         return null
@@ -129,7 +181,8 @@ class WalletDetail extends Component {
       return data.sigUserList && data.sigUserList.length + '/' + required_sign
     };
     const isNotView = () => {
-      return !(isSend && !data.sigUserList)
+      const hasCho = isSend === 1 || isSend === 2;
+      return !(hasCho && !data.sigUserList)
     };
     return (
       <Provider>
@@ -138,7 +191,7 @@ class WalletDetail extends Component {
           {
             data && <View>
               <View style={s.top}>
-                <Text style={s.tip}>{isSend ? '已发送' : '已接收'}</Text>
+                <Text style={s.tip}>{getTip()}</Text>
                 <View style={s.fee}>
                   <View style={s.btc}>
                     <Text style={s.num}>{data.amount && filterLastZore(data.amount)}</Text>
@@ -158,13 +211,25 @@ class WalletDetail extends Component {
                 <Text style={s.money}>{data.created || data.createTime}</Text>
               </View>
               {
+                isSend === 2 && data.type === 'WITHDRAW_PLEDGE' && <View style={s.txHashView}>
+                  <Text style={s.tip2}>指向交易</Text>
+                  <Text numberOfLines={1} style={s.txHash} onPress={copyclTxHash}>{data.clTxHash || 'null'}</Text>
+                </View>
+              }
+              {
+                isSend === 2 && (data.status === 'SIGNED' || data.status === 'NOT_CONFIRM') && <View style={s.txHashView}>
+                  <Text style={s.tip2}>状态</Text>
+                  <Text numberOfLines={1} style={s.txHash}>未确认</Text>
+                </View>
+              }
+              {
                 isNotView() && <View style={s.line1}>
                   <Text style={s.tip}>{data.sigUserList ? '已获得签名' : '确认'}</Text>
                   <Text style={s.money}>{data.sigUserList ? getNum() : data.notifiedConfirmNum}</Text>
                 </View>
               }
               {
-                isSend && data.sigUserList && <View style={s.list}>
+                (isSend === 1 || isSend === 2) && data.sigUserList && <View style={s.list}>
                   {
                     data.sigUserList.map(u => {
                       return(
@@ -180,7 +245,10 @@ class WalletDetail extends Component {
             </View>
           }
           {
-            data.sigUserList && isSend && have()
+            data.sigUserList && (isSend === 1 || isSend === 2) && have()
+          }
+          {
+            isSend === 2 && data.cancelable && RevokePoint()
           }
         </View>
       </Provider>
