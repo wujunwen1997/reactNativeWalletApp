@@ -59,6 +59,7 @@ export class WalletConfig extends Component {
       home.Wallet.create_wallet(home.walletConfig).then(res => {
         this.setState({loading: false, disabled: false });
         if (res.wallet_name) {
+          const coinName = home.coinTypes.find(u => (u.type === res.cointype)).symbol;
           dispatch({
             type: 'home/getWalletList',
             payload: ''
@@ -66,7 +67,8 @@ export class WalletConfig extends Component {
           dispatch({
             type: 'home/updateState',
             payload: {
-              walletItem:res
+              walletItem:res,
+              coinName: coinName
             }
           });
           navigation.navigate('WalletHome');
