@@ -27,7 +27,7 @@ const delSame = (arr, key) => {
     })
     return !arrs.includes(i)
   }
-}
+};
 export default {
   namespace: 'home',
   state: {

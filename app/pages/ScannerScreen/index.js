@@ -96,7 +96,8 @@ class ScannerScreen extends React.Component {
           Toast.info("ImagePicker发生错误：" + response.error, 1, '', false);
           return;
         }
-        readerQR(response.path).then((data)=>{
+        const url = Platform.OS === 'ios' ? response.uri : response.path
+        readerQR(url).then((data)=>{
           onGo(data)
         })
       });
