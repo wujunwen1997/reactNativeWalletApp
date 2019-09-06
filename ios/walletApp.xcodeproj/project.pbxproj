@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -65,6 +65,9 @@
 		6A53C014230BBECD00E5D20F /* libcoincrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFED230BBECD00E5D20F /* libcoincrypto.a */; };
 		6A53C015230BBECD00E5D20F /* libboost_iostreams.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFEE230BBECD00E5D20F /* libboost_iostreams.a */; };
 		6A53C017230BC0EC00E5D20F /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A53C016230BC0EC00E5D20F /* icomoon.ttf */; };
+		6A7971A22320EDF500E5D20F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7971A12320EDF400E5D20F /* logo.png */; };
+		6AD06F46231F4F9800E5D20F /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD06F44231F4F9700E5D20F /* libprotobuf.a */; };
+		6AD06F47231F4F9800E5D20F /* libBinanceChain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD06F45231F4F9800E5D20F /* libBinanceChain.a */; };
 		73A1FF4EFC84111535417CBE /* libPods-walletApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6D22D75D0080B4F7FAC298 /* libPods-walletApp-tvOS.a */; };
 		89E396BFDABB491E805DA232 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA1834B581DE425686630D7A /* MaterialCommunityIcons.ttf */; };
 		9BFFE28A3A17C03283BBB0CD /* libPods-walletApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E58A987B51CDEFBEA2C1DD8 /* libPods-walletApp.a */; };
@@ -167,6 +170,10 @@
 		6A53BFED230BBECD00E5D20F /* libcoincrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcoincrypto.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libcoincrypto.a; sourceTree = "<group>"; };
 		6A53BFEE230BBECD00E5D20F /* libboost_iostreams.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_iostreams.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libboost_iostreams.a; sourceTree = "<group>"; };
 		6A53C016230BC0EC00E5D20F /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = icomoon.ttf; path = ../app/assets/fonts/icomoon.ttf; sourceTree = "<group>"; };
+		6A53C018230E3E8B00E5D20F /* walletApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = walletApp.entitlements; path = walletApp/walletApp.entitlements; sourceTree = "<group>"; };
+		6A7971A12320EDF400E5D20F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = walletApp/logo.png; sourceTree = "<group>"; };
+		6AD06F44231F4F9700E5D20F /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libprotobuf.a; sourceTree = "<group>"; };
+		6AD06F45231F4F9800E5D20F /* libBinanceChain.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBinanceChain.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libBinanceChain.a; sourceTree = "<group>"; };
 		76D6F150653C47C5B04546AA /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		84E6ABA2C83940F68D720661 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		A0ADAB32D438445890833734 /* Pods-walletApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walletApp.debug.xcconfig"; path = "Target Support Files/Pods-walletApp/Pods-walletApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +205,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AD06F46231F4F9800E5D20F /* libprotobuf.a in Frameworks */,
+				6AD06F47231F4F9800E5D20F /* libBinanceChain.a in Frameworks */,
 				6A53BFEF230BBECD00E5D20F /* libdevcrypto.a in Frameworks */,
 				6A53BFF0230BBECD00E5D20F /* libflatbuffers.a in Frameworks */,
 				6A53BFF1230BBECD00E5D20F /* libboost_chrono.a in Frameworks */,
@@ -263,6 +272,8 @@
 		13B07FAE1A68108700A75B9A /* walletApp */ = {
 			isa = PBXGroup;
 			children = (
+				6A7971A12320EDF400E5D20F /* logo.png */,
+				6A53C018230E3E8B00E5D20F /* walletApp.entitlements */,
 				6A53BFC5230BBE6A00E5D20F /* RCTWallet.h */,
 				6A53BFC4230BBE6A00E5D20F /* RCTWallet.mm */,
 				6A53BFC6230BBE6A00E5D20F /* rnbridgewallet.hpp */,
@@ -280,6 +291,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6AD06F45231F4F9800E5D20F /* libBinanceChain.a */,
+				6AD06F44231F4F9700E5D20F /* libprotobuf.a */,
 				6A53BFCB230BBECC00E5D20F /* libbitcoin.a */,
 				6A53BFEC230BBECD00E5D20F /* libbitcoinabc.a */,
 				6A53BFD0230BBECC00E5D20F /* libbitcoincommon.a */,
@@ -501,6 +514,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = JP5V2U5UTQ;
+						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 0;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -516,7 +534,7 @@
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "walletApp" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -551,6 +569,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				6A7971A22320EDF500E5D20F /* logo.png in Resources */,
 				F7825064A6D348138C40A791 /* antfill.ttf in Resources */,
 				AAEB5A9F51FE42F0ADBA0B90 /* antoutline.ttf in Resources */,
 				382456BF70E34C67AA758AE7 /* AntDesign.ttf in Resources */,
@@ -868,7 +887,11 @@
 				);
 				INFOPLIST_FILE = walletAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -888,7 +911,11 @@
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = walletAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -906,10 +933,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 2G3J4A4SM4;
 				INFOPLIST_FILE = walletApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion\"",
@@ -950,8 +984,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chainspay.walletApp;
 				PRODUCT_NAME = walletApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -962,9 +998,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2G3J4A4SM4;
 				INFOPLIST_FILE = walletApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion\"",
@@ -1005,8 +1048,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chainspay.walletApp;
 				PRODUCT_NAME = walletApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1025,7 +1070,10 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "walletApp-tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1053,7 +1101,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "walletApp-tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1080,7 +1131,11 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "walletApp-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1107,7 +1162,11 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "walletApp-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1150,7 +1209,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = JP5V2U5UTQ;
+				DEVELOPMENT_TEAM = 2G3J4A4SM4;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1172,6 +1232,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 arm64e";
 			};
 			name = Debug;
 		};
@@ -1202,9 +1263,10 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = JP5V2U5UTQ;
+				DEVELOPMENT_TEAM = 2G3J4A4SM4;
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1219,6 +1281,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 arm64e";
 			};
 			name = Release;
 		};
