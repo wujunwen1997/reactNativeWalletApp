@@ -65,7 +65,6 @@
 		6A53C014230BBECD00E5D20F /* libcoincrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFED230BBECD00E5D20F /* libcoincrypto.a */; };
 		6A53C015230BBECD00E5D20F /* libboost_iostreams.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A53BFEE230BBECD00E5D20F /* libboost_iostreams.a */; };
 		6A53C017230BC0EC00E5D20F /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A53C016230BC0EC00E5D20F /* icomoon.ttf */; };
-		6A7971A22320EDF500E5D20F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A7971A12320EDF400E5D20F /* logo.png */; };
 		6AD06F46231F4F9800E5D20F /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD06F44231F4F9700E5D20F /* libprotobuf.a */; };
 		6AD06F47231F4F9800E5D20F /* libBinanceChain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD06F45231F4F9800E5D20F /* libBinanceChain.a */; };
 		73A1FF4EFC84111535417CBE /* libPods-walletApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6D22D75D0080B4F7FAC298 /* libPods-walletApp-tvOS.a */; };
@@ -171,7 +170,6 @@
 		6A53BFEE230BBECD00E5D20F /* libboost_iostreams.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_iostreams.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libboost_iostreams.a; sourceTree = "<group>"; };
 		6A53C016230BC0EC00E5D20F /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = icomoon.ttf; path = ../app/assets/fonts/icomoon.ttf; sourceTree = "<group>"; };
 		6A53C018230E3E8B00E5D20F /* walletApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = walletApp.entitlements; path = walletApp/walletApp.entitlements; sourceTree = "<group>"; };
-		6A7971A12320EDF400E5D20F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = walletApp/logo.png; sourceTree = "<group>"; };
 		6AD06F44231F4F9700E5D20F /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libprotobuf.a; sourceTree = "<group>"; };
 		6AD06F45231F4F9800E5D20F /* libBinanceChain.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBinanceChain.a; path = ../../../blockchain_crypto/buildios/lib/MinSizeRel/libBinanceChain.a; sourceTree = "<group>"; };
 		76D6F150653C47C5B04546AA /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 		13B07FAE1A68108700A75B9A /* walletApp */ = {
 			isa = PBXGroup;
 			children = (
-				6A7971A12320EDF400E5D20F /* logo.png */,
 				6A53C018230E3E8B00E5D20F /* walletApp.entitlements */,
 				6A53BFC5230BBE6A00E5D20F /* RCTWallet.h */,
 				6A53BFC4230BBE6A00E5D20F /* RCTWallet.mm */,
@@ -569,7 +566,6 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				6A7971A22320EDF500E5D20F /* logo.png in Resources */,
 				F7825064A6D348138C40A791 /* antfill.ttf in Resources */,
 				AAEB5A9F51FE42F0ADBA0B90 /* antoutline.ttf in Resources */,
 				382456BF70E34C67AA758AE7 /* AntDesign.ttf in Resources */,
