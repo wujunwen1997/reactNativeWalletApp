@@ -71,6 +71,7 @@ export default {
     //  备份助记词
     mnemonic: '',
     mnemonics: [],
+    choseMnemonics: [],
     copyM: [],
     //  密码进入
     enterPassword: '',

@@ -38,11 +38,15 @@ class BackupMnemonics extends Component {
   render() {
     const {dispatch, model, navigation} = this.props;
     const {home} = model;
-    const { copyM, mnemonics, mnemonic, NextText, haveMnemonic } = home;
+    const { copyM, mnemonics, mnemonic, NextText, haveMnemonic, choseMnemonics } = home;
     const next = () => {
         dispatch({
           type: 'home/updateState',
-          payload: {mnemonics: mnemonics.map(x => ''), copyM: mnemonics.sort(randomsort), NextText: '完成'}
+          payload: {
+            mnemonics: mnemonics.map(x => ''),
+            copyM: mnemonics.sort(randomsort),
+            choseMnemonics: mnemonics.sort(randomsort).map((u, index) => {return {val: '', index: 30}}),
+            NextText: '完成'}
         });
         this.props.navigation.setParams({ home: this.props.model.home,
           dispatch: this.props.dispatch,
@@ -52,9 +56,9 @@ class BackupMnemonics extends Component {
       AsyncStorage.setItem('haveMnemonic', 'yes');
       navigation.navigate(haveMnemonic ? 'SetIndex' : 'AuthLoading');
     };
-    const onMnemomics = () => {
+    const onMnemomics = (mn) => {
         //  检查助记词的顺序是否正确
-        if (mnemonics.join(' ') === mnemonic) {
+        if (mn === mnemonic) {
           AsyncStorage.setItem('haveMnemonic', 'yes');
           navigation.navigate(haveMnemonic ? 'SetIndex' : 'AuthLoading');
           dispatch({
@@ -63,6 +67,7 @@ class BackupMnemonics extends Component {
               mnemonics: mnemonic.split(" "),
               mnemonic:mnemonic,
               copyM: [],
+              choseMnemonics: mnemonic.split(" ").sort(randomsort).map((u, index) => {return {val: '', index: 30}}),
               NextText: '下一步',
               haveMnemonic: false
             }
@@ -71,30 +76,45 @@ class BackupMnemonics extends Component {
           Toast.fail('助记词顺序错误', 1, '', false);
         }
     }
-    const getText = (val) => {
-      console.log(val, mnemonics)
-      let obj = mnemonics;
-      if (mnemonics.includes(val)) {
-        for(let i = 0; i < mnemonics.length; i++) {
-          if (mnemonics[i] === val) {
-            obj[i] = ''
+    const getText = (val, index) => {
+      let choseMns = choseMnemonics;
+      if (choseMns.filter(u => u.index === index).length > 0) {
+        for(let i = 0; i < choseMns.length; i++) {
+          if (choseMns[i].index === index) {
+            if (choseMns[i].val === '') {
+              if (choseMns.filter(u => u.val === '')) {
+                for(let j = 0; j < choseMns.length; j++) {
+                  if (choseMns[j].val === '') {
+                    choseMns[j].val = val;
+                    choseMns[j].index = index;
+                    break
+                  }
+                }
+              }
+            } else {
+              choseMns[i].val = '';
+              choseMns[i].index = 30;
+              break
+            }
           }
         }
       } else {
-        for(let i = 0; i < mnemonics.length; i++) {
-          if (mnemonics[i] === '') {
-            obj[i] = val;
+        for(let j = 0; j < choseMns.length; j++) {
+          if (choseMns[j].val === '') {
+            choseMns[j].val = val;
+            choseMns[j].index = index;
             break
           }
         }
       }
-      obj.filter( u => u === '').length === 0 && onMnemomics();
       dispatch({
         type: 'home/updateState',
         payload: {
-          mnemonics: obj
+          mnemonics: choseMns.map(u => u.val),
+          choseMnemonics: choseMns
         }
       })
+      choseMns.filter(u => !!(u.val)).length === 12 && onMnemomics(choseMns.map(u => u.val).join(' '));
     };
     return (
       <Provider>
@@ -121,7 +141,7 @@ class BackupMnemonics extends Component {
               {
                 copyM.map((u, i) => {
                   return(
-                    <Text key={i} onPress={() => {getText(u)}} style={mnemonics.includes(u) ? s.blockSelect : s.block}>{u}</Text>
+                    <Text key={i} onPress={() => {getText(u, i)}} style={choseMnemonics.find((u) => u.index === i && u.val !== '') ? s.blockSelect : s.block}>{u}</Text>
                   )
                 })
               }

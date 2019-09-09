@@ -39,6 +39,7 @@ class SetIndex extends Component {
   this.setState({ code: '' });
   home.Wallet.openIdentity({password: code}).then(res => {
     if (res.success) {
+      AsyncStorage.setItem('haveMnemonic', 'no');
       const key = Toast.loading(route !== 'BackupPrompt' ? '身份注销中...' : '正在跳转...', 20);
       if (route !== "BackupPrompt") {
         home.Wallet.destroy_identity().then(res => {
