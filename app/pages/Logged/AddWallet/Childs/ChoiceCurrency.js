@@ -15,7 +15,15 @@ class ChoiceCurrency extends Component {
       headerLeft: <BackImage color={'#fff'} event={() => {navigation.goBack()}}/>,
     }
   };
+  state = {
+    coins: []
+  }
   componentDidMount () {
+    if (this.props.navigation.getParam('routeName') === 'MultiSignature') {
+      this.setState({coins: this.props.model.home.coinTypes.filter(u => u.symbol !== 'ETH')})
+    } else {
+      this.setState({coins: this.props.model.home.coinTypes})
+    }
     this.props.dispatch({type: 'home/getCoinTypes', payload: ''})
   }
   render() {
@@ -41,7 +49,7 @@ class ChoiceCurrency extends Component {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={s.container1}>
           {
-            home.coinTypes.map((_, i) => {
+            this.state.coins.map((_, i) => {
               return(
                 <TouchableOpacity key={i} onPress={() => {this.props.navigation.navigate(navigation.getParam('routeName'), {type: _.type})}}
                                   activeOpacity={0.8} style={Platform.OS === 'ios' && { width: '90%'}}>
