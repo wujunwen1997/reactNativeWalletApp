@@ -7,7 +7,17 @@ const test_server = 'https://customer-test.chainspay.com/';
 const server = 'https://customer.chainspay.com/';
 const local_test = 'http://192.168.0.57:8081/';
 
+<<<<<<< HEAD
 WalletModule.init_library(test_server, () => {
+=======
+current_server = server;
+
+if (__DEV__){
+	current_server = local_test;
+}
+
+WalletModule.init_library(current_server, () => {
+>>>>>>> 32c86edb14d931f3c051510fbeb5c135413a47f4
     console.log('WalletModule inited');
     module_inited = true;
 });
