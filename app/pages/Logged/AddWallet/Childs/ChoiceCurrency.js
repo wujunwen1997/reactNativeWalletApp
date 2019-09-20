@@ -2,10 +2,11 @@ import React, {Component} from 'react'
 import Svg from '../../../../components/Svg';
 import BoxShadow from "../../../../components/BoxShadow";
 import { connect } from 'react-redux';
-import {
-  StyleSheet, Text, View, StatusBar,ActivityIndicator,Platform, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Platform, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
 import BackImage from "../../../../components/headerView/backImage";
-import HeaderView from "../../../../components/headerView";
+import Fetch from '../../../../api/config/api'
+import {getBlockchains} from '../../../../api/getCoinType/index'
+import { Toast } from '@ant-design/react-native';
 
 const width = Dimensions.get('window').width;
 class ChoiceCurrency extends Component {
@@ -19,11 +20,13 @@ class ChoiceCurrency extends Component {
     coins: []
   }
   componentDidMount () {
-    if (this.props.navigation.getParam('routeName') === 'MultiSignature') {
-      this.setState({coins: this.props.model.home.coinTypes.filter(u => u.symbol !== 'ETH')})
-    } else {
-      this.setState({coins: this.props.model.home.coinTypes})
-    }
+    Fetch(getBlockchains()).then(res => {
+      if (res instanceof Array) {
+        this.setState({coins: res})
+      } else {
+        Toast.fail('请求区块链失败', 1, false)
+      }
+    })
     this.props.dispatch({type: 'home/getCoinTypes', payload: ''})
   }
   render() {
@@ -33,7 +36,7 @@ class ChoiceCurrency extends Component {
       return(
         <View style={s.content}>
                       <Svg icon={_.symbol} style={s.icon} width={30} height={30}/>
-                      <Text style={s.text}>{_.name} ({_.symbol})</Text>
+                      <Text style={s.text}>{_.blockchain} ({_.symbol})</Text>
                     </View>
       )
     }

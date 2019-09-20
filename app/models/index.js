@@ -322,7 +322,6 @@ export default {
     * getCoinTypes ({payload}, {call, put, select}) {
       const {Wallet} = yield select(state => state.home);
       const res = yield call(Wallet.get_supported_coin_type, '');
-      console.log(222222, res)
       if (res.cointype) {
         yield put({
           type: "updateState",

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import { connect } from 'react-redux';
 
@@ -23,7 +23,7 @@ class AuthLoadingScreen extends React.Component {
   }
   render() {
     return (
-      <Text/>
+      <ActivityIndicator color={'#F8f8f8'}/>
     );
   }
 }

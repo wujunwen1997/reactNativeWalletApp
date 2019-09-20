@@ -5,7 +5,6 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 class FacebookTabBar extends React.Component {
   icons = [];
@@ -16,6 +15,7 @@ class FacebookTabBar extends React.Component {
   }
 
   componentDidMount() {
+    //  箭头函数
     this._listener = this.props.scrollValue.addListener(this.setAnimationValue.bind(this));
   }
 
